@@ -65,20 +65,3 @@ sudo chown -R `whoami` /usr/local
 ## Vim
 
 详细用法与教程请参考这份说明: [Vim 使用指南](./doc/vim.md)
-
-## 讨论交流
-
-为了避免无意义的加群，请发送邮件到 [bestswifter@gmail.com](mailto:bestswifter@gmail.com)，介绍你对本书的看法和期待，字数不限，我会回复微信号并拉你进群。
-
-## 内推招聘
-
-头条北京、上海、深圳等地急缺各种开发、运营、产品岗位，点击 此链接 或扫描下发二维码投递简历即可享受内推福利。
-
-**头条 iOS 基础技术团队急缺 iOS 工程师**，内推通过请吃饭，手把手讲解本书所有内容。。。
-
-![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LBLo0eP1FW2IkggnToa%2F-LEK9Gkq5xOdMCyyn8Sj%2F-LEKAPDx-knzrsZ__ixw%2Fimage.png?alt=media&token=5db13570-7999-49f4-b841-04b1ff9b23b9)
-
-# What's next
-
-- [] Add more npm packages
-- [] IMPORTANT: Add demo for this project to show the convenience and advantange of this project
