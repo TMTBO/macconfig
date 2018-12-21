@@ -38,7 +38,6 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles -bool false &
 alias ppjson='python $BS_ZSH_TOOLS/json_pretty.py'
 alias pi='pod install'
 alias pu='pod update'
-alias cd='wd'
 alias vim='nvim'
 alias vimf='vim $(fzf)'
 alias ns='npm start'
