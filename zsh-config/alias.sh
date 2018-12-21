@@ -29,6 +29,7 @@ alias gbr='git branch --remote'
 alias gba='git branch -a'
 alias gt='git tag'
 alias gtd='git tag -d'
+alias gcf='git checkout $(gb | fzf)'
 
 # zsh
 alias cpu='sysctl -n machdep.cpu.brand_string'
@@ -37,6 +38,7 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles -bool false &
 alias ppjson='python $BS_ZSH_TOOLS/json_pretty.py'
 alias pi='pod install'
 alias pu='pod update'
+alias cd='wd'
 alias vim='nvim'
 alias vimf='vim $(fzf)'
 alias ns='npm start'
