@@ -7,12 +7,12 @@ brew install python3
 pip3 install shadowsocks
 
 # install and use shadowsocks
-if not_tt_network; then
-    nohup sslocal -q -c ~/.macbootstrap/tools/netconf &> /private/tmp/nohup.out&
-    export ALL_PROXY=socks5://127.0.0.1:14179
-else
-    echo "You are in toutiao network, no need to use ss now"
-fi
+#if not_tt_network; then
+#    nohup sslocal -q -c ~/.macbootstrap/tools/netconf &> /private/tmp/nohup.out&
+#    export ALL_PROXY=socks5://127.0.0.1:14179
+#else
+#    echo "You are in toutiao network, no need to use ss now"
+#fi
 
 if [[ ! -e /Applications/iTerm.app ]]; then
     brew cask install iterm2
@@ -26,11 +26,11 @@ else
     echo "You have installed iTerm2"
 fi
 
-if [[ ! -e /Applications/SourceTree.app ]]; then
-    brew cask install sourcetree
-else
-    echo "You have installed SourceTree"
-fi
+#if [[ ! -e /Applications/SourceTree.app ]]; then
+#    brew cask install sourcetree
+#else
+#    echo "You have installed SourceTree"
+#fi
 
 if [[ ! -e /Applications/WeChat.app ]]; then
     brew cask install wechat
@@ -100,7 +100,7 @@ ln -s ~/.macbootstrap/git-config/.gitconfig ~/.gitconfig
 ln -s ~/.macbootstrap/git-config/.gitattributes ~/.gitattributes
 
 if [[ ! -e ~/.oh-my-zsh ]]; then
-    curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
 # zshrc setup
@@ -112,13 +112,13 @@ ln -s ~/.macbootstrap/zsh-config/.zshrc ~/.zshrc
 # vim configuration
 backup_file ~/.vim
 backup_file ~/.config/nvim/
-git clone https://github.com/bestswifter/vim-config.git ~/.config/nvim
+git clone https://github.com/rafi/vim-config.git ~/.config/nvim
 ln -s ~/.config/nvim ~/.vim
 
 # ESLint configuration
-backup_file ~/.eslintrc.js
-backup_file ~/.eslintrc
-ln -s ~/.macbootstrap/.eslintrc.js ~/.eslintrc.js
+# backup_file ~/.eslintrc.js
+# backup_file ~/.eslintrc
+# ln -s ~/.macbootstrap/.eslintrc.js ~/.eslintrc.js
 
 # Ranger configuration
 if [[ ! -e $HEME/.config/ranger ]]; then
@@ -133,7 +133,7 @@ ln -s ~/.macbootstrap/config/ranger/rc.conf "$old_rc_conf"
 
 ./install-steps/dependencies.before.sh
 
-unset ALL_PROXY
+#unset ALL_PROXY
 ./install-steps/dependencies.after.sh
 
 # ssh configuration

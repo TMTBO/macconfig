@@ -21,6 +21,6 @@ fi
 
 brew install git
 
-git clone --depth=1 https://github.com/bestswifter/macbootstrap.git ~/.macbootstrap
+git clone --depth=1 git@github.com:TMTBO/macconfig.git ~/.macbootstrap
 cd ~/.macbootstrap
 bash install.sh

@@ -8,7 +8,7 @@ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json webpquicklook 
 brew cask install --appdir='/usr/local/bin' qlimagesize qlvideo # Avoid password
 
 # Zip tool
-brew cask install the-unarchiver
+#brew cask install the-unarchiver
 
 # Install applications
 # ---------------
