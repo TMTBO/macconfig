@@ -50,22 +50,22 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 export PATH="/usr/local/sbin:$PATH"
 
 # for nvm
-#export NVM_DIR=~/.nvm
-#export EDITOR="nvim"
-#export NVM_SH="/usr/local/opt/nvm/nvm.sh"
+export NVM_DIR=~/.nvm
+export EDITOR="nvim"
+export NVM_SH="/usr/local/opt/nvm/nvm.sh"
 # https://github.com/creationix/nvm/issues/860
-#declare -a NODE_GLOBALS=(`find $NVM_DIR/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
+declare -a NODE_GLOBALS=(`find $NVM_DIR/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
 
-#NODE_GLOBALS+=("node")
-#NODE_GLOBALS+=("nvm")
+NODE_GLOBALS+=("node")
+NODE_GLOBALS+=("nvm")
 
-# load_nvm () {
-#  [ -s "$NVM_SH" ] && . "$NVM_SH"
-# }
+load_nvm () {
+  [ -s "$NVM_SH" ] && . "$NVM_SH"
+}
 
-#for cmd in "${NODE_GLOBALS[@]}"; do
-#  eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
-#done
+for cmd in "${NODE_GLOBALS[@]}"; do
+  eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
+done
 
 # Bind key
 bindkey ';' autosuggest-execute
