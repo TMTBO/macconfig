@@ -56,6 +56,12 @@ else
     echo "You have installed vscode"
 fi
 
+if [[ ! -e /Applications/Go2Shell.app ]]; then
+    brew cask install Go2Shell
+else
+    echo "You have installed Go2Shell"
+fi
+
 if brew ls --versions gnu-sed > /dev/null; then
     echo "You have installed gsed"
 else
