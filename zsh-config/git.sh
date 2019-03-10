@@ -32,6 +32,7 @@ alias grh='git reset --hard'
 alias gri='git rebase -i'
 alias gro='git rebase -i --onto'
 alias grs='git reset --soft'
+alias gs = 'scmpuff_status'
 alias gsfrs='git stash;git fetch;git rebase;git stash pop;'
 alias gsp='git stash pop --index'
 alias gsr='git_recursive_status'
@@ -41,17 +42,17 @@ alias cdsubmodule='GIT_ROOT=$(git rev-parse --show-toplevel 2>/dev/null) && [[ -
 alias whyignore='git check-ignore -v'
 alias reignore='git rm -r --cached . && git add .'
 
-function gs() {
-    if brew ls --versions scmpuff > /dev/null; then
-       scmpuff_status
-    else
-       echo "${YELLOW}You have not install scmpuff, use default git status instead${NC}"
-       echo "${YELLOW}Strongly recommend you to install it: brew install scmpuff${NC}"
-       echo "${YELLOW}"'And then add this line to you .zshrc: eval "$(scmpuff init -s --aliases=false)"'"${NC}"
-       echo ""
-       git status
-   fi
-}
+#function gs() {
+    # if brew ls --versions scmpuff > /dev/null; then
+    #   scmpuff_status
+    #else
+    #   echo "${YELLOW}You have not install scmpuff, use default git status instead${NC}"
+    #   echo "${YELLOW}Strongly recommend you to install it: brew install scmpuff${NC}"
+    #   echo "${YELLOW}"'And then add this line to you .zshrc: eval "$(scmpuff init -s --aliases=false)"'"${NC}"
+    #   echo ""
+    #   git status
+   #fi
+#}
 
 function gdt() {
     params="$@"
