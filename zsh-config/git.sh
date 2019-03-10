@@ -17,11 +17,11 @@ alias gdr='git_recursive_diff'
 alias gds='git diff --staged'
 alias gf='git fetch'
 alias gfr='git fetch;git rebase;'
-alias gg='git log'
+alias gg='git lg'
 alias ggrep='git grep --break --heading -n'
 alias gh='git help --man'
 alias gignore='git update-index --assume-unchanged'
-alias ggp='git log -p'
+alias glp='git log -p'
 alias gm='git merge'
 alias gco='git checkout'
 alias gpush='git push origin HEAD:dev;'
@@ -32,7 +32,6 @@ alias grh='git reset --hard'
 alias gri='git rebase -i'
 alias gro='git rebase -i --onto'
 alias grs='git reset --soft'
-alias gs = 'scmpuff_status'
 alias gsfrs='git stash;git fetch;git rebase;git stash pop;'
 alias gsp='git stash pop --index'
 alias gsr='git_recursive_status'
@@ -42,9 +41,9 @@ alias cdsubmodule='GIT_ROOT=$(git rev-parse --show-toplevel 2>/dev/null) && [[ -
 alias whyignore='git check-ignore -v'
 alias reignore='git rm -r --cached . && git add .'
 
-#function gs() {
+function gs() {
     # if brew ls --versions scmpuff > /dev/null; then
-    #   scmpuff_status
+    scmpuff_status
     #else
     #   echo "${YELLOW}You have not install scmpuff, use default git status instead${NC}"
     #   echo "${YELLOW}Strongly recommend you to install it: brew install scmpuff${NC}"
@@ -52,7 +51,7 @@ alias reignore='git rm -r --cached . && git add .'
     #   echo ""
     #   git status
    #fi
-#}
+}
 
 function gdt() {
     params="$@"
