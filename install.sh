@@ -118,8 +118,7 @@ ln -s ~/.macbootstrap/zsh-config/.zshrc ~/.zshrc
 # vim configuration
 backup_file ~/.vim
 backup_file ~/.config/nvim/
-git clone https://github.com/rafi/vim-config.git ~/.config/nvim
-ln -s ~/.config/nvim ~/.vim
+./neovim/setup.sh
 
 # ESLint configuration
 # backup_file ~/.eslintrc.js
