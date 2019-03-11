@@ -1,0 +1,7 @@
+# Dash
+- repo: rizzatti/dash.vim
+
+# LSP
+- { repo: ryanolsonx/vim-lsp-swift, on_ft: swift }
+- repo: prabirshrestha/async.vim
+- repo: prabirshrestha/vim-lsp
