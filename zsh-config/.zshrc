@@ -46,6 +46,11 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 #export GOBIN=$GOPATH/bin
 #export PATH=$PATH:$GOBIN
 
+# Swift
+export SOURCEKIT_TOOLCHAIN_PATH=/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2019-03-04-a.xctoolchain
+export SOURCEKIT_LSP_EXECUTABLE_PATH=/Developer/sourcekit-lsp/.build/x86_64-apple-macosx10.10/debug/sourcekit-ls
+PATH=$PATH:$SOURCEKIT_LSP_EXECUTABLE_PATH
+
 # Homebrew
 export PATH="/usr/local/sbin:$PATH"
 

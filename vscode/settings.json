@@ -136,16 +136,6 @@
                 "e"
             ]
         },
-        {
-            "before": [
-                ":"
-            ],
-            "after": [],
-            "commands": [{
-                "command": "workbench.action.showCommands",
-                "args": []
-            }]
-        }
     ],
     "vim.handleKeys": {
         "<C-h>": false
