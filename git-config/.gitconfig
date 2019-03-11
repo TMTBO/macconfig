@@ -44,4 +44,4 @@
     textconv = plutil -convert xml1 -o -
 [user]
 	name = Thriller
-	email = tmtbo@hotmail.com
+	email = wujie@lizhi.fm
