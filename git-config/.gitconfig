@@ -42,3 +42,6 @@
     textconv = exiftool
 [diff "plist"]
     textconv = plutil -convert xml1 -o -
+[user]
+	name = Thriller
+	email = wujie@lizhi.fm
