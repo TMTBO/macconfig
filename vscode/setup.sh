@@ -19,6 +19,3 @@ link locale.json
 link settings.json
 link vsicons.settings.json
 link snippets
-
-# Sync plugin
-sh "$CUR_DIR"/sync_pluggin.sh

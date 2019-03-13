@@ -1,6 +1,5 @@
 // 将键绑定放入此文件中以覆盖默认值
-[
-    {
+[{
         "key": "cmd+l",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "terminalFocus"
