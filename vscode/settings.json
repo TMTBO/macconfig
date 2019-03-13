@@ -35,8 +35,6 @@
     // Source-Kit
     "sourcekit-lsp.toolchainPath": "/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2019-03-04-a.xctoolchain",
     // VSCode Config
-    "vsicons.dontShowNewVersionMessage": true,
-    "workbench.iconTheme": "vscode-icons",
     // Editor setting
     "editor.formatOnType": true,
     "editor.formatOnSave": true,
@@ -59,7 +57,7 @@
     "workbench.editor.enablePreview": false,
     // Window setting
     "window.title": "${activeEditorLong}",
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 2,
     // File setting
     "files.autoSave": "onWindowChange",
     "files.associations": {
@@ -102,4 +100,7 @@
     // Comment
     "better-comments.multilineComments": true,
     "workbench.startupEditor": "newUntitledFile",
+    "editor.fontSize": 16,
+    "vim.easymotionMarkerFontSize": "16",
+    "vim.easymotionMarkerHeight": 16
 }
