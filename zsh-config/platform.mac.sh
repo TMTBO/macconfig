@@ -114,6 +114,20 @@ function ow() {
     fi
 }
 
+function owa() {
+    if [[ -n "$@" ]]; then
+        (cd "$@" && ow)
+    else
+        if ls *.xcworkspace 2>&1 1>/dev/null; then
+            for i in *.xcworkspace; open "$i" -a AppCode
+        elif ls *.xcodeproj 2>&1 1>/dev/null; then
+            for i in *.xcodeproj;open "$i" -a AppCode
+        else
+            echo "ERROR, xcode project not exists in '$(pwd)' !"
+            echo "Use this in xcode project directory or use 'ow <DIRECTORY>'"
+        fi
+    fi
+}
 #如果不指定文件名，默认是当前目录下递归搜索，否则在指定文件名中搜索
 function bsgrep() {
     if [ $# -eq 1 ]; then
