@@ -56,6 +56,7 @@ alias -g NUL="> /dev/null 2>&1"
 alias pllint='pod lib lint --sources=http://gitlab.lizhi.fm/iOSPods/LizhiSpecs.git --use-libraries'
 alias pslint='pod spec lint --sources=http://gitlab.lizhi.fm/iOSPods/LizhiSpecs.git --use-libraries'
 alias ppackage='pod package *.podspec --library --force --spec-sources=http://gitlab.lizhi.fm/iOSPods/LizhiSpecs.git'
+alias ppackageframework='pod package *.podspec --embedded --force --spec-sources=http://gitlab.lizhi.fm/iOSPods/LizhiSpecs.git'
 alias podrepopush='pod repo push LizhiSpecs --sources=http://gitlab.lizhi.fm/iOSPods/LizhiSpecs.git --use-libraries'
 alias pib='bundle exec pod install'
 alias pub='bundle exec pod update'

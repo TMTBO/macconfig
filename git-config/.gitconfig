@@ -45,3 +45,6 @@
 [user]
 	name = Thriller
 	email = wujie@lizhi.fm
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 

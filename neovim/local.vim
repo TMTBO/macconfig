@@ -23,6 +23,7 @@ autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 " Open Tagbar
 autocmd VimEnter * TagbarToggle
+nmap <F8> :TagbarToggle<CR>
 
 " Close NerdTree automatically
 function! s:CloseIfOnlyControlWinLeft()
@@ -57,6 +58,7 @@ endif
 
 " keymapping
 
+:nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <silent> gn :<C-u>tabNext<CR>
 nnoremap <silent> <C-q> :<C-u>:quit!<CR>
 inoremap <silent> <C-q> <Esc>:<C-u>:quit!<CR>
@@ -83,7 +85,7 @@ function! s:config_easyfuzzymotion(...) abort
   \ }), get(a:, 1, {}))
 endfunction
 
-noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
-noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
-noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
+" noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
+" noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
+" noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())

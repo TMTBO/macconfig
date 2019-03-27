@@ -1,0 +1,6 @@
+set ignorecase
+set wrapscan
+"set guioptions=r
+set startofline
+
+" Key mappings
