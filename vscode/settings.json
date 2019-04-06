@@ -76,7 +76,6 @@
     // Code Runner
     "code-runner.runInTerminal": true,
     "code-runner.saveFileBeforeRun": true,
-    "code-runner.clearPreviousOutput": true,
     "code-runner.executorMapByFileExtension": {
         ".go": "go",
         ".swift": "swift",
@@ -102,5 +101,7 @@
     "workbench.startupEditor": "newUntitledFile",
     "editor.fontSize": 14,
     "vim.easymotionMarkerFontSize": "16",
-    "vim.easymotionMarkerHeight": 16
+    "vim.easymotionMarkerHeight": 16,
+    "sourcekit-lsp.serverPath": "/Users/thriller/Developer/sourcekit-lsp/.build/debug/sourcekit-lsp",
+    "sourcekit-lsp.trace.server": "messages"
 }

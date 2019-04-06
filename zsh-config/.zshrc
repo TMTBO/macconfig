@@ -46,14 +46,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 #export GOBIN=$GOPATH/bin
 #export PATH=$PATH:$GOBIN
 
-# Swift
-export SOURCEKIT_TOOLCHAIN_PATH=/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2019-03-04-a.xctoolchain
-export SOURCEKIT_LSP_EXECUTABLE_PATH=/Developer/sourcekit-lsp/.build/x86_64-apple-macosx10.10/debug/sourcekit-ls
-PATH=$PATH:$SOURCEKIT_LSP_EXECUTABLE_PATH
-
-# Homebrew
-export PATH="/usr/local/sbin:$PATH"
-
 # for nvm
 export NVM_DIR=~/.nvm
 export EDITOR="nvim"
@@ -78,3 +70,10 @@ bindkey ';' autosuggest-execute
 #archey -o
 autoload -U bashcompinit
 bashcompinit
+
+# Homebrew
+export PATH="/usr/local/sbin:$PATH"
+# Swift
+export SOURCEKIT_TOOLCHAIN_PATH=/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2019-03-04-a.xctoolchain
+# Ruby
+export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"

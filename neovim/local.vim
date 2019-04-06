@@ -18,7 +18,7 @@ let g:operator#surround#blocks = {
     \ }
 
 " Start NERDTree
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 " Go to previous (last accessed) window
 autocmd VimEnter * wincmd p
 " Open Tagbar
