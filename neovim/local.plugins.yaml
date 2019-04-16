@@ -10,3 +10,13 @@
 - repo: haya14busa/incsearch.vim
 - repo: haya14busa/incsearch-fuzzy.vim
 - repo: haya14busa/incsearch-easymotion.vim
+
+# deoplete
+
+- repo: Shougo/deoplete-clangx
+  on_ft: [C, C++, Objective-C, Objective-C++]
+
+# coc
+# - repo: neoclide/coc.nvim
+#   merge: 0
+#   build: ./install.sh nightly
