@@ -10,3 +10,6 @@
 - repo: haya14busa/incsearch.vim
 - repo: haya14busa/incsearch-fuzzy.vim
 - repo: haya14busa/incsearch-easymotion.vim
+
+# Dart
+- repo: dart-lang/dart-vim-plugin

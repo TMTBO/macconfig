@@ -77,3 +77,5 @@ export PATH="/usr/local/sbin:$PATH"
 export SOURCEKIT_TOOLCHAIN_PATH=/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2019-04-04-a.xctoolchain
 # Ruby
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
+# Flutter
+export PATH="$PATH:$HOME/Developer/Flutter/flutter/bin"

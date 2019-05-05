@@ -103,5 +103,6 @@
     "vim.easymotionMarkerFontSize": "16",
     "vim.easymotionMarkerHeight": 16,
     "sourcekit-lsp.serverPath": "/Users/thriller/Developer/sourcekit-lsp/.build/debug/sourcekit-lsp",
-    "sourcekit-lsp.trace.server": "messages"
+    "sourcekit-lsp.trace.server": "messages",
+    "vim.highlightedyank.enable": true
 }
