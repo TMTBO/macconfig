@@ -13,3 +13,12 @@
 
 # Dart
 - repo: dart-lang/dart-vim-plugin
+
+# deoplete
+- repo: Shougo/deoplete-clangx
+  on_ft: [C, C++, Objective-C, Objective-C++]
+
+# coc
+# - repo: neoclide/coc.nvim
+#   merge: 0
+#   build: ./install.sh nightly

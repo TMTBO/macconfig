@@ -74,8 +74,10 @@ bashcompinit
 # Homebrew
 export PATH="/usr/local/sbin:$PATH"
 # Swift
-export SOURCEKIT_TOOLCHAIN_PATH=/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2019-04-04-a.xctoolchain
+export SOURCEKIT_TOOLCHAIN_PATH=/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2019-04-07-a.xctoolchain
 # Ruby
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 # Flutter
 export PATH="$PATH:$HOME/Developer/Flutter/flutter/bin"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

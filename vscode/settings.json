@@ -33,7 +33,7 @@
     // Vim - Surround
     "vim.surround": true,
     // Source-Kit
-    "sourcekit-lsp.toolchainPath": "/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2019-03-04-a.xctoolchain",
+    "sourcekit-lsp.toolchainPath": "/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2019-04-07-a.xctoolchain",
     // VSCode Config
     // Editor setting
     "editor.formatOnType": true,
@@ -105,4 +105,7 @@
     "sourcekit-lsp.serverPath": "/Users/thriller/Developer/sourcekit-lsp/.build/debug/sourcekit-lsp",
     "sourcekit-lsp.trace.server": "messages",
     "vim.highlightedyank.enable": true
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    }
 }
