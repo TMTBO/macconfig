@@ -13,6 +13,8 @@
 
 # Dart
 - repo: dart-lang/dart-vim-plugin
+- repo: natebosch/vim-lsc
+- repo: natebosch/vim-lsc-dart
 
 # deoplete
 - repo: Shougo/deoplete-clangx
