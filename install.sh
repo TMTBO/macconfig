@@ -76,6 +76,17 @@ else
     echo "You have installed coreutils"
 fi
 
+# install flutter
+if [[ ! -e ~/Developer/Flutter/flutter ]]; then
+    export PUB_HOSTED_URL=https://pub.flutter-io.cn
+    export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+    git clone -b dev https://github.com/flutter/flutter.git ~/Developer/Flutter/flutter
+    export PATH="$PWD/flutter/bin:$PATH"
+    cd ./flutter
+    flutter doctor
+fi
+
+
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 brew install redis
 brew_install cmake
@@ -97,6 +108,8 @@ brew_install nvim
 brew_install exiftool
 brew_install archey
 brew_install ranger
+brew tap dart-lang/dart
+brew install dart
 $(brew --prefix)/opt/fzf/install --all
 
 # link git config
