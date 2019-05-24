@@ -20,7 +20,7 @@ let g:operator#surround#blocks = {
 " Start NERDTree
 " autocmd VimEnter * NERDTree
 " Go to previous (last accessed) window
-autocmd VimEnter * wincmd p
+" autocmd VimEnter * wincmd p
 " Open Tagbar
 autocmd VimEnter * TagbarToggle
 nmap <F8> :TagbarToggle<CR>
