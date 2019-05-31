@@ -33,9 +33,15 @@ fi
 #fi
 
 if [[ ! -e /Applications/WeChat.app ]]; then
-    brew cask install wechat
+    brew cask install wechatwork
 else
     echo "You have installed WeChat"
+fi
+
+if [[ ! -e /Applications/WeChat\ Work.app ]]; then
+    mas install 1189898970
+else
+    echo "You have installed WeChat Work"
 fi
 
 if [[ ! -e /Applications/Google\ Chrome.app ]]; then
@@ -56,10 +62,35 @@ else
     echo "You have installed vscode"
 fi
 
+if [[ ! -e /Applications/ShadowsocksX-NG.app ]]; then
+    brew cask install ShadowsocksX-NG
+else
+    echo "You have installed ShadowsocksX-NG"
+fi
+
+if [[ ! -e /Applications/HyperSwitch.app ]]; then
+    brew cask install HyperSwitch
+else
+    echo "You have installed HyperSwitch"
+fi
+
+if [[ ! -e /Applications/Postman.app ]]; then
+    brew cask install Postman
+else
+    echo "You have installed Postman"
+fi
+
 if [[ ! -e /Applications/Go2Shell.app ]]; then
     brew cask install Go2Shell
 else
     echo "You have installed Go2Shell"
+fi
+
+
+if [[ ! -e /Applications/DB\ Browser\ for\ SQLite.app ]]; then
+    brew cask install db-browser-for-sqlite
+else
+    echo "You have installed DB Browser for SQLite"
 fi
 
 if brew ls --versions gnu-sed > /dev/null; then
@@ -76,16 +107,8 @@ else
     echo "You have installed coreutils"
 fi
 
-# install flutter
-if [[ ! -e ~/Developer/Flutter/flutter ]]; then
-    export PUB_HOSTED_URL=https://pub.flutter-io.cn
-    export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
-    git clone -b dev https://github.com/flutter/flutter.git ~/Developer/Flutter/flutter
-    export PATH="$PWD/flutter/bin:$PATH"
-    cd ./flutter
-    flutter doctor
-fi
-
+brew cask install baiduinput
+open /usr/local/Caskroom/baiduinput/latest/安装百度输入法.app
 
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 brew install redis
@@ -132,6 +155,23 @@ ln -s ~/.macbootstrap/zsh-config/.zshrc ~/.zshrc
 backup_file ~/.vim
 backup_file ~/.config/nvim/
 ./neovim/setup.sh
+
+# install flutter
+if [[ ! -e ~/Developer/Flutter/flutter ]]; then
+    export PUB_HOSTED_URL=https://pub.flutter-io.cn
+    export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+    git clone -b dev https://github.com/flutter/flutter.git ~/Developer/Flutter/flutter
+    export PATH="~/Developer/Flutter/flutter/bin:$PATH"
+    cd ~/Developer/Flutter/flutter
+    flutter doctor
+fi
+
+# install sourcekit-lsp
+if [[ ! -e ~/Developer/Flutter/sourcekit-lsp ]]; then
+    git clone https://github.com/apple/sourcekit-lsp.git ~/Developer/sourcekit-lsp
+    swift package update
+    swift build
+fi
 
 # ESLint configuration
 # backup_file ~/.eslintrc.js
