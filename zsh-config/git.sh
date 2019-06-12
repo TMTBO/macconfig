@@ -1,5 +1,4 @@
 # good experience with git.
-alias ga='git add'
 alias gai='git add -i'
 alias gan='git_add_new_files'
 alias gap='git add -p'
@@ -11,7 +10,6 @@ alias gcm='git commit -m'
 alias gcp='git cherry-pick'
 alias gcpa='git cherry-pick --abort'
 alias gcpc='git cherry-pick --continue'
-alias gd='git diff'
 alias gdc='git diff HEAD~ HEAD'
 alias gdr='git_recursive_diff'
 alias gds='git diff --staged'
@@ -40,18 +38,6 @@ alias gst='_git_show_commit_in_tool'
 alias cdsubmodule='GIT_ROOT=$(git rev-parse --show-toplevel 2>/dev/null) && [[ -n "$GIT_ROOT" ]] && [[ -f "$GIT_ROOT/.gitmodules" ]] && realpath=$(awk -F= "/path =/ {print substr(\$2, 2)}" "$GIT_ROOT/.gitmodules") && cd "$GIT_ROOT/$realpath"'
 alias whyignore='git check-ignore -v'
 alias reignore='git rm -r --cached . && git add .'
-
-function gs() {
-    # if brew ls --versions scmpuff > /dev/null; then
-    scmpuff_status
-    #else
-    #   echo "${YELLOW}You have not install scmpuff, use default git status instead${NC}"
-    #   echo "${YELLOW}Strongly recommend you to install it: brew install scmpuff${NC}"
-    #   echo "${YELLOW}"'And then add this line to you .zshrc: eval "$(scmpuff init -s --aliases=false)"'"${NC}"
-    #   echo ""
-    #   git status
-   #fi
-}
 
 function gdt() {
     params="$@"
@@ -124,9 +110,6 @@ function showModifiedFilesInRevesion() {
 }
 
 # copy lxf's scripts.
-function __cherry_pick_help() {
-    echo "Usage: git_cherry_pick_with_user [-n|--no-date] <commit>..."
-}
 
 function __cherry_pick_single_commit() {
     nodate="$1"

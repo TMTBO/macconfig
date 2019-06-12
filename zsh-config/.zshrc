@@ -35,9 +35,11 @@ BS_ZSH_TOOLS=${BS_ZSH_BASE}/tools
 
 source $BS_ZSH_BASE/zsh-config/common.sh
 source /usr/local/etc/profile.d/autojump.sh
-if brew ls --versions scmpuff > /dev/null; then
-    eval "$(scmpuff init -s --aliases=false)"
-fi
+#if brew ls --versions scmpuff > /dev/null; then
+#    eval "$(scmpuff init -s --aliases=false)"
+#fi
+
+eval "$(scmpuff init -s)"
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
@@ -56,13 +58,13 @@ declare -a NODE_GLOBALS=(`find $NVM_DIR/versions/node -maxdepth 3 -type l -whole
 NODE_GLOBALS+=("node")
 NODE_GLOBALS+=("nvm")
 
-load_nvm () {
-  [ -s "$NVM_SH" ] && . "$NVM_SH"
-}
-
-for cmd in "${NODE_GLOBALS[@]}"; do
-  eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
-done
+# load_nvm () {
+#  [ -s "$NVM_SH" ] && . "$NVM_SH"
+#}
+#
+#for cmd in "${NODE_GLOBALS[@]}"; do
+#  eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
+#done
 
 # Bind key
 bindkey ';' autosuggest-execute
@@ -84,3 +86,5 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

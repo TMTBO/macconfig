@@ -1,8 +1,5 @@
 set relativenumber
 
-let NERDTreeQuitOnOpen = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
 let g:operator#surround#blocks = {
     \   '-' : [
     \       { 'block' : ['(', ')'], 'motionwise' : ['char', 'line', 'block'], 'keys' : ['(', ')'] },
@@ -22,7 +19,7 @@ let g:operator#surround#blocks = {
 " Go to previous (last accessed) window
 " autocmd VimEnter * wincmd p
 " Open Tagbar
-autocmd VimEnter * TagbarToggle
+" autocmd VimEnter * TagbarToggle
 nmap <F8> :TagbarToggle<CR>
 
 " Close NerdTree automatically
@@ -74,22 +71,6 @@ if dein#tap('vim-easymotion')
   map sh <Plug>(easymotion-linebackward)
 endif
 
-" EasyMotion Plugs
-
-" function! s:incsearch_config(...) abort
-"   return incsearch#util#deepextend(deepcopy({
-"   \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
-"   \   'keymap': {
-"   \     "\<CR>": '<Over>(easymotion)'
-"   \   },
-"   \   'is_expr': 0
-"   \ }), get(a:, 1, {}))
-" endfunction
-
-" noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
-" noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
-" noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
-
 function! s:config_easyfuzzymotion(...) abort
   return extend(copy({
   \   'converters': [incsearch#config#fuzzyword#converter()],
@@ -100,4 +81,4 @@ function! s:config_easyfuzzymotion(...) abort
   \ }), get(a:, 1, {}))
 endfunction
 
-noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
+noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion()

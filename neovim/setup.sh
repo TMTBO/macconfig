@@ -9,8 +9,8 @@ fi
 ln -s ~/.config/nvim ~/.vim
 
 # setup ccls
-brew update
-brew install ccls
+# brew update
+# brew install ccls
 
 
 

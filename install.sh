@@ -4,6 +4,7 @@ source basic.sh
 sudo ./install-steps/macos.sh
 
 brew install python3
+brew install mas
 pip3 install shadowsocks
 
 # install and use shadowsocks
@@ -33,15 +34,9 @@ fi
 #fi
 
 if [[ ! -e /Applications/WeChat.app ]]; then
-    brew cask install wechatwork
+    brew cask install wechat
 else
     echo "You have installed WeChat"
-fi
-
-if [[ ! -e /Applications/WeChat\ Work.app ]]; then
-    mas install 1189898970
-else
-    echo "You have installed WeChat Work"
 fi
 
 if [[ ! -e /Applications/Google\ Chrome.app ]]; then

@@ -2,7 +2,7 @@
 - repo: rizzatti/dash.vim
 
 # LSP
-- { repo: ryanolsonx/vim-lsp-swift, on_ft: swift }
+- { repo: ryanolsonx/vim-lsp-swift, on_ft: Swift }
 - repo: prabirshrestha/async.vim
 - repo: prabirshrestha/vim-lsp
 
@@ -13,12 +13,15 @@
 
 # Dart
 - repo: dart-lang/dart-vim-plugin
+  on_ft: Dart
 - repo: natebosch/vim-lsc
+  on_ft: Dart
 - repo: natebosch/vim-lsc-dart
+  on_ft: Dart
 
 # deoplete
 - repo: Shougo/deoplete-clangx
-  on_ft: [C, C++, Objective-C, Objective-C++]
+  on_ft: [C, C++, Objective-C, Objective-C++, Swift]
 
 # coc
 # - repo: neoclide/coc.nvim
