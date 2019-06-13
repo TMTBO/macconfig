@@ -81,6 +81,7 @@ export SOURCEKIT_TOOLCHAIN_PATH=/Library/Developer/Toolchains/swift-DEVELOPMENT-
 #export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 # Flutter
 export PATH="$PATH:$HOME/Developer/Flutter/flutter/bin"
+export ENABLE_FLUTTER_DESKTOP=true
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
