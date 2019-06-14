@@ -1,111 +1,110 @@
 {
-    // Gitlens config
-    "gitlens.keymap": "none",
-    "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": true,
-        "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true,
-        "suppressUpdateNotice": false,
-        "suppressWelcomeNotice": true
-    },
-    // Vim Config
-    "vim.neovimPath": "/usr/local/bin/nvim",
-    "vim.enableNeovim": true,
-    "vim.easymotion": true,
-    "vim.sneak": true,
-    "vim.incsearch": true,
-    "vim.useSystemClipboard": true,
-    "vim.useCtrlKeys": true,
-    "vim.hlsearch": true,
-    "vim.visualstar": true,
-    "vim.handleKeys": {
-        "<C-h>": false
-    },
-    "vim.leader": ";",
-    // Vim - EasyMotion
-    "vim.easymotionMarkerBackgroundColor": "#000000",
-    "vim.easymotionMarkerForegroundColorOneChar": "#ff0000",
-    // Vim - Surround
-    "vim.surround": true,
-    // Source-Kit
-    "sourcekit-lsp.toolchainPath": "/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2019-04-07-a.xctoolchain",
-    // VSCode Config
-    // Editor setting
-    "editor.formatOnType": true,
-    "editor.formatOnSave": true,
-    "editor.lineNumbers": "relative",
-    "editor.minimap.enabled": true,
-    "editor.renderWhitespace": "all",
-    "editor.quickSuggestions": {
-        "other": true,
-        "comments": false,
-        "strings": true
-    },
-    "editor.acceptSuggestionOnEnter": "on",
-    "editor.quickSuggestionsDelay": 10,
-    "editor.suggestOnTriggerCharacters": true,
-    "editor.wordBasedSuggestions": true,
-    "editor.parameterHints": true,
-    "editor.wordWrap": "on",
-    "editor.renderLineHighlight": "line",
-    "editor.suggestSelection": "recentlyUsedByPrefix",
-    "workbench.editor.enablePreview": false,
-    // Window setting
-    "window.title": "${activeEditorLong}",
-    "window.zoomLevel": 0,
-    // File setting
-    "files.autoSave": "onWindowChange",
-    "files.associations": {
-        "*.vue": "vue"
-    },
-    //
-    "vetur.format.defaultFormatter.html": "none",
-    "vetur.format.defaultFormatter.css": "prettier",
-    "vetur.format.defaultFormatter.postcss": "prettier",
-    "vetur.format.defaultFormatter.scss": "prettier",
-    "vetur.format.defaultFormatter.less": "prettier",
-    "vetur.format.defaultFormatter.stylus": "stylus-supremacy",
-    "vetur.format.defaultFormatter.js": "prettier",
-    "vetur.format.defaultFormatter.ts": "prettier",
-    "prettier.eslintIntegration": true,
-    // Code Runner
-    "code-runner.runInTerminal": true,
-    "code-runner.saveFileBeforeRun": true,
-    "code-runner.executorMapByFileExtension": {
-        ".go": "go",
-        ".swift": "swift",
-        ".m": "Objc"
-    },
-    "code-runner.executorMap": {
-        "javascript": "node",
-        "php": "C:\\php\\php.exe",
-        "python": "python",
-        "perl": "perl",
-        "ruby": "C:\\Ruby23-x64\\bin\\ruby.exe",
-        "go": "go run",
-        "html": "\"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe\"",
-        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
-        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
-    },
-    // File path
-    "ActiveFileInStatusBar.fullpath": false,
-    "path-intellisense.absolutePathToWorkspace": false,
-    "gitlens.historyExplorer.enabled": true,
-    // Comment
-    "better-comments.multilineComments": true,
-    "workbench.startupEditor": "newUntitledFile",
-    "editor.fontSize": 14,
-    "vim.easymotionMarkerFontSize": "16",
-    "vim.easymotionMarkerHeight": 16,
-    "sourcekit-lsp.serverPath": "/Users/thriller/Developer/sourcekit-lsp/.build/debug/sourcekit-lsp",
-    "sourcekit-lsp.trace.server": "messages",
-    "vim.highlightedyank.enable": true
-    "[markdown]": {
-        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-    }
+  // Gitlens config
+  "gitlens.keymap": "none",
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": true,
+    "suppressNoRepositoryWarning": false,
+    "suppressResultsExplorerNotice": false,
+    "suppressShowKeyBindingsNotice": true,
+    "suppressUpdateNotice": false,
+    "suppressWelcomeNotice": true
+  },
+  // Vim Config
+  "vim.neovimPath": "/usr/local/bin/nvim",
+  "vim.enableNeovim": true,
+  "vim.easymotion": true,
+  "vim.sneak": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.visualstar": true,
+  "vim.handleKeys": {
+    "<C-h>": false
+  },
+  "vim.leader": ";",
+  // Vim - EasyMotion
+  "vim.easymotionMarkerBackgroundColor": "#000000",
+  "vim.easymotionMarkerForegroundColorOneChar": "#ff0000",
+  // Vim - Surround
+  "vim.surround": true,
+  // Source-Kit
+  "sourcekit-lsp.toolchainPath": "/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2019-04-07-a.xctoolchain",
+  // VSCode Config
+  // Editor setting
+  "editor.formatOnType": true,
+  "editor.formatOnSave": true,
+  "editor.lineNumbers": "relative",
+  "editor.minimap.enabled": true,
+  "editor.renderWhitespace": "all",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  },
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.quickSuggestionsDelay": 10,
+  "editor.suggestOnTriggerCharacters": true,
+  "editor.wordBasedSuggestions": true,
+  "editor.parameterHints": true,
+  "editor.wordWrap": "on",
+  "editor.renderLineHighlight": "line",
+  "editor.suggestSelection": "recentlyUsedByPrefix",
+  "workbench.editor.enablePreview": false,
+  // Window setting
+  "window.title": "${activeEditorLong}",
+  "window.zoomLevel": 0,
+  // File setting
+  "files.autoSave": "onWindowChange",
+  "files.associations": {
+    "*.vue": "vue"
+  },
+  //
+  "vetur.format.defaultFormatter.html": "none",
+  "vetur.format.defaultFormatter.css": "prettier",
+  "vetur.format.defaultFormatter.postcss": "prettier",
+  "vetur.format.defaultFormatter.scss": "prettier",
+  "vetur.format.defaultFormatter.less": "prettier",
+  "vetur.format.defaultFormatter.stylus": "stylus-supremacy",
+  "vetur.format.defaultFormatter.js": "prettier",
+  "vetur.format.defaultFormatter.ts": "prettier",
+  "prettier.eslintIntegration": true,
+  // Code Runner
+  "code-runner.runInTerminal": true,
+  "code-runner.saveFileBeforeRun": true,
+  "code-runner.executorMapByFileExtension": {
+    ".go": "go",
+    ".swift": "swift",
+    ".m": "Objc"
+  },
+  "code-runner.executorMap": {
+    "javascript": "node",
+    "php": "C:\\php\\php.exe",
+    "python": "python",
+    "perl": "perl",
+    "ruby": "C:\\Ruby23-x64\\bin\\ruby.exe",
+    "go": "go run",
+    "html": "\"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe\"",
+    "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+    "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
+  },
+  // File path
+  "ActiveFileInStatusBar.fullpath": false,
+  "path-intellisense.absolutePathToWorkspace": false,
+  "gitlens.historyExplorer.enabled": true,
+  // Comment
+  "better-comments.multilineComments": true,
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.fontSize": 14,
+  "vim.easymotionMarkerFontSize": "16",
+  "vim.easymotionMarkerHeight": 16,
+"sourcekit-lsp.serverPath": "/Users/thriller/Developer/sourcekit-lsp/.build/debug/sourcekit-lsp",
+  "vim.highlightedyank.enable": true,
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  }
 }
