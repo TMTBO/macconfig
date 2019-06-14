@@ -50,7 +50,6 @@
   "editor.quickSuggestionsDelay": 10,
   "editor.suggestOnTriggerCharacters": true,
   "editor.wordBasedSuggestions": true,
-  "editor.parameterHints": true,
   "editor.wordWrap": "on",
   "editor.renderLineHighlight": "line",
   "editor.suggestSelection": "recentlyUsedByPrefix",
@@ -63,15 +62,6 @@
   "files.associations": {
     "*.vue": "vue"
   },
-  //
-  "vetur.format.defaultFormatter.html": "none",
-  "vetur.format.defaultFormatter.css": "prettier",
-  "vetur.format.defaultFormatter.postcss": "prettier",
-  "vetur.format.defaultFormatter.scss": "prettier",
-  "vetur.format.defaultFormatter.less": "prettier",
-  "vetur.format.defaultFormatter.stylus": "stylus-supremacy",
-  "vetur.format.defaultFormatter.js": "prettier",
-  "vetur.format.defaultFormatter.ts": "prettier",
   "prettier.eslintIntegration": true,
   // Code Runner
   "code-runner.runInTerminal": true,
@@ -93,16 +83,14 @@
     "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
   },
   // File path
-  "ActiveFileInStatusBar.fullpath": false,
   "path-intellisense.absolutePathToWorkspace": false,
-  "gitlens.historyExplorer.enabled": true,
   // Comment
   "better-comments.multilineComments": true,
   "workbench.startupEditor": "newUntitledFile",
   "editor.fontSize": 14,
   "vim.easymotionMarkerFontSize": "16",
   "vim.easymotionMarkerHeight": 16,
-"sourcekit-lsp.serverPath": "/Users/thriller/Developer/sourcekit-lsp/.build/debug/sourcekit-lsp",
+  "sourcekit-lsp.serverPath": "/Users/thriller/Developer/sourcekit-lsp/.build/debug/sourcekit-lsp",
   "vim.highlightedyank.enable": true,
   "[markdown]": {
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
