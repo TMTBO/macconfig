@@ -128,6 +128,9 @@ brew_install archey
 brew_install ranger
 brew tap dart-lang/dart
 brew install dart
+# install vapor
+brew tap vapor/tap
+brew install vapor/tap/vapor
 $(brew --prefix)/opt/fzf/install --all
 
 # link git config
@@ -167,6 +170,7 @@ if [[ ! -e ~/Developer/Flutter/sourcekit-lsp ]]; then
     swift package update
     swift build
 fi
+
 
 # ESLint configuration
 # backup_file ~/.eslintrc.js
