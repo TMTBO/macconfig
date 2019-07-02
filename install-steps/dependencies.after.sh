@@ -4,7 +4,7 @@ source basic.sh
 # ---------------
 
 # Extension for preview
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json webpquicklook provisionql quicklookapk
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json webpquicklook provisionql quicklookapk betterzip suspicious-package
 brew cask install --appdir='/usr/local/bin' qlimagesize qlvideo # Avoid password
 
 # Zip tool
