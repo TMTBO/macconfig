@@ -169,6 +169,7 @@ if [[ ! -e ~/Developer/Flutter/sourcekit-lsp ]]; then
     git clone https://github.com/apple/sourcekit-lsp.git ~/Developer/sourcekit-lsp
     swift package update
     swift build
+    ln -s ~/Developer/sourcekit-lsp/.build/debug/sourcekit-lsp /usr/local/bin/sourcekit-lsp
 fi
 
 
