@@ -153,6 +153,7 @@ ln -s ~/.macbootstrap/zsh-config/.zshrc ~/.zshrc
 backup_file ~/.vim
 backup_file ~/.config/nvim/
 ./neovim/setup.sh
+./intellij/setup.sh
 
 # install flutter
 if [[ ! -e ~/Developer/Flutter/flutter ]]; then
@@ -171,7 +172,6 @@ if [[ ! -e ~/Developer/Flutter/sourcekit-lsp ]]; then
     swift build
     ln -s ~/Developer/sourcekit-lsp/.build/debug/sourcekit-lsp /usr/local/bin/sourcekit-lsp
 fi
-
 
 # ESLint configuration
 # backup_file ~/.eslintrc.js
