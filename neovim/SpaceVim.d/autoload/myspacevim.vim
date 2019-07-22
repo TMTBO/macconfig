@@ -21,6 +21,7 @@ function! myspacevim#init() abort
   set autoindent
   set showcmd
   set showmode
+  set clipboard=unnamed
   syntax on
 
   " LSP

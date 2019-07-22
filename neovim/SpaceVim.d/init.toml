@@ -72,15 +72,15 @@ name = 'lang#sh'
 [[layers]]
 name = 'lang#markdown'
 
-# [[layers]]
-# name = 'lsp'
-# filetypes = [
-#   'dart',
-#   'objc',
-#   'objcpp'
+[[layers]]
+name = 'lsp'
+#filetypes = [
+#  'dart',
+#  'objc',
+#  'objcpp'
 #   'swift',
-#   'python',
-#   'sh'
-# ]
+#  'python',
+# 'sh'
+#]
 # [layers.override_cmd]
 #   swift = ['swiftd', 'sourcekitd', 'clangd', 'sourcekit-lsp']
