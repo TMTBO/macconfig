@@ -78,9 +78,22 @@ name = 'lsp'
 #  'dart',
 #  'objc',
 #  'objcpp'
-#   'swift',
+#  'swift',
 #  'python',
 # 'sh'
 #]
 # [layers.override_cmd]
 #   swift = ['swiftd', 'sourcekitd', 'clangd', 'sourcekit-lsp']
+
+[[custom_plugins]]
+name = 'zxqfl/tabnine-vim'
+
+# [[custom_plugins]]
+# name = 'ryanolsonx/vim-lsp-swift'
+# on_ft = 'Swift'
+
+# [[custom_plugins]]
+# name = 'prabirshrestha/async.vim'
+
+# [[custom_plugins]]
+# name = 'prabirshrestha/vim-lsp'
