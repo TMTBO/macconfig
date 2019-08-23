@@ -166,7 +166,7 @@ if [[ ! -e ~/Developer/Flutter/flutter ]]; then
 fi
 
 # install sourcekit-lsp
-if [[ ! -e ~/Developer/Flutter/sourcekit-lsp ]]; then
+if [[ ! -e ~/Developer/sourcekit-lsp ]]; then
     git clone https://github.com/apple/sourcekit-lsp.git ~/Developer/sourcekit-lsp
     swift package update
     swift build
