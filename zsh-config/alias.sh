@@ -60,3 +60,8 @@ alias ppackageframework='pod package *.podspec --embedded --force --spec-sources
 alias podrepopush='pod repo push LizhiSpecs --sources=http://gitlab.lizhi.fm/iOSPods/LizhiSpecs.git --use-libraries'
 alias pib='bundle exec pod install'
 alias pub='bundle exec pod update'
+
+# swift package manager
+alias spminit='swift package init'
+alias spminitexec='swift package init --type executable'
+alias spmgenproj='swift package generate-xcodeproj'
