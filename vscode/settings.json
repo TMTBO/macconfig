@@ -33,14 +33,14 @@
   // Vim - Surround
   "vim.surround": true,
   // Source-Kit
-  "sourcekit-lsp.toolchainPath": "/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2019-07-11-a.xctoolchain",
+  "sourcekit-lsp.toolchainPath": "/Library/Developer/Toolchains/swift-latest.xctoolchain",
   // VSCode Config
   // Editor setting
   "editor.formatOnType": true,
   "editor.formatOnSave": true,
   "editor.lineNumbers": "relative",
   "editor.minimap.enabled": true,
-  "editor.renderWhitespace": "all",
+  "editor.renderWhitespace": "none",
   "editor.quickSuggestions": {
     "other": true,
     "comments": false,
@@ -100,5 +100,7 @@
   },
   "diffEditor.ignoreTrimWhitespace": false,
   "C_Cpp.updateChannel": "Insiders",
-  "editor.largeFileOptimizations": false
+  "editor.largeFileOptimizations": false,
+  "breadcrumbs.enabled": true,
+  "editor.renderControlCharacters": false
 }
