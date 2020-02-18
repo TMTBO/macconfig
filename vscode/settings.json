@@ -100,5 +100,8 @@
   },
   "diffEditor.ignoreTrimWhitespace": false,
   "C_Cpp.updateChannel": "Insiders",
-  "editor.largeFileOptimizations": false
+  "editor.largeFileOptimizations": false,
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.value": 5,
+  "workbench.editor.limit.perEditorGroup": true
 }
