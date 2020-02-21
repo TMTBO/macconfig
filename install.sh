@@ -202,3 +202,11 @@ if [[ ! -e ~/.ssh ]]; then
 fi
 ln -s ~/.macbootstrap/zsh-config/ssh_config ~/.ssh/config
 
+# install appstore apps
+./appstore.sh
+
+# SPM Shell Completion Scripts
+swift package completion-tool generate-zsh-script > ~/.macbootstrap/zsh-config/_swift
+echo -e "fpath=(~/.macbootstrap/zsh-config \$fpath)\n" >> ~/.zshrc
+compinit
+
