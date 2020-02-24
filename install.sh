@@ -118,6 +118,7 @@ brew_install catimg
 brew_install gpg
 brew_install icdiff
 brew_install scmpuff
+brew_install z
 brew_install fzf
 brew_install fd
 brew_install the_silver_searcher

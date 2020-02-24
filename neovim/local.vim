@@ -1,7 +1,7 @@
 set relativenumber
 
 " Markdown
-" autocmd FileType markdown setlocal expandtab spell conceallevel=0
+autocmd FileType markdown setlocal nospell
 
 let g:operator#surround#blocks = {
     \   '-' : [
