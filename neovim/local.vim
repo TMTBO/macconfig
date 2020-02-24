@@ -1,5 +1,8 @@
 set relativenumber
 
+" Markdown
+" autocmd FileType markdown setlocal expandtab spell conceallevel=0
+
 let g:operator#surround#blocks = {
     \   '-' : [
     \       { 'block' : ['(', ')'], 'motionwise' : ['char', 'line', 'block'], 'keys' : ['(', ')'] },
@@ -99,7 +102,7 @@ noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 
 function! s:config_easyfuzzymotion(...) abort
   return extend(copy({
-  \   'converters': [incsearch#config#fuzzyword#converter()],
+  \   'converters': [incsearch#config#fuzzy#converter()],
   \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
   \   'keymap': {"\<CR>": '<Over>(easymotion)'},
   \   'is_expr': 0,

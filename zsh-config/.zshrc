@@ -58,13 +58,13 @@ declare -a NODE_GLOBALS=(`find $NVM_DIR/versions/node -maxdepth 3 -type l -whole
 NODE_GLOBALS+=("node")
 NODE_GLOBALS+=("nvm")
 
-# load_nvm () {
-#  [ -s "$NVM_SH" ] && . "$NVM_SH"
-#}
-#
-#for cmd in "${NODE_GLOBALS[@]}"; do
-#  eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
-#done
+load_nvm () {
+  [ -s "$NVM_SH" ] && . "$NVM_SH"
+}
+
+for cmd in "${NODE_GLOBALS[@]}"; do
+  eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
+done
 
 # Bind key
 bindkey ';' autosuggest-execute
@@ -75,8 +75,6 @@ bashcompinit
 
 # Homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-# Swift
-# export SOURCEKIT_TOOLCHAIN_PATH=/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2019-07-11-a.xctoolchain
 # Ruby
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 # Flutter

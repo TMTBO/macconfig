@@ -16,4 +16,12 @@ make test
 make
 nvim -c checkhealth
 
+# Node.js based linters
+npm -g install jshint jsxhint jsonlint stylelint sass-lint
+npm -g install raml-cop markdownlint-cli write-good
+
+# Python based linters
+pip install --user pycodestyle pyflakes flake8 vim-vint proselint yamllint
+
+
 echo "Setup Neovim Finished!"

@@ -83,5 +83,5 @@ fi
 export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix nvm)/nvm.sh
 export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
-nvm install 9.11.0
+nvm install 13.13.0
 
