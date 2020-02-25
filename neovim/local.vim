@@ -65,6 +65,13 @@ inoremap <silent> <C-q> <Esc>:<C-u>:quit!<CR>
 
 " EasyMotion
 
+let g:EasyMotion_do_mapping = 1
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_upper = 1
+let g:EasyMotion_startofline = 0
+let g:EasyMotion_prompt = 'Jump to 👉 '
+let g:EasyMotion_keys = 'fjdksweoavn'
+
 if dein#tap('vim-easymotion')
 	nmap ss <Plug>(easymotion-s2)
 	nmap sd <Plug>(easymotion-s)
@@ -78,6 +85,7 @@ if dein#tap('vim-easymotion')
 	omap s/ <Plug>(easymotion-tn)
 	map  sn <Plug>(easymotion-next)
 	map  sp <Plug>(easymotion-prev)
+	map  . <Plug>(easymotion-repeat)
 endif
 
 " insearch
@@ -100,10 +108,12 @@ noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
 noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
 noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 
+" incsearch.vim x fuzzy x vim-easymotion
+
 function! s:config_easyfuzzymotion(...) abort
   return extend(copy({
   \   'converters': [incsearch#config#fuzzy#converter()],
-  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  \   'modules': [incsearch#config#easymotion#module()],
   \   'keymap': {"\<CR>": '<Over>(easymotion)'},
   \   'is_expr': 0,
   \   'is_stay': 1

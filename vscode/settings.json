@@ -23,6 +23,128 @@
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
   "vim.visualstar": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    },
+    {
+      "before": [
+        "k",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    },
+    {
+      "before": [
+        "h",
+        "h"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "g",
+        "c"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.commentLine",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "C"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.commentBlock",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "s"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "/"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "l"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "leader",
+        "b",
+        "d",
+        "j",
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "c"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "c"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "w"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "leader",
+        "b",
+        "d",
+        "w"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "e"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "leader",
+        "b",
+        "d",
+        "e"
+      ]
+    }
+  ],
   "vim.handleKeys": {
     "<C-h>": false
   },
@@ -104,5 +226,12 @@
   "workbench.editor.limit.perEditorGroup": true,
   "cSpell.userWords": [
     "relativenumber"
-  ]
+  ],
+  "vim.statusBarColorControl": true,
+  "vim.vimrc.enable": true,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f",
+    "statusBar.debuggingBackground": "#005f5f"
+  }
 }
