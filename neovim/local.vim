@@ -58,6 +58,7 @@ endif
 
 " keymapping
 
+inoremap jj <esc>
 :nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <silent> gn :<C-u>tabNext<CR>
 nnoremap <silent> <C-q> :<C-u>:quit!<CR>
