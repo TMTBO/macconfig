@@ -70,14 +70,14 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_upper = 1
 let g:EasyMotion_startofline = 0
 let g:EasyMotion_prompt = 'Jump to 👉 '
-let g:EasyMotion_keys = 'fjdksweoavn'
+let g:EasyMotion_keys = 'FJDKSWEOAVN'
 
 if dein#tap('vim-easymotion')
 	nmap ss <Plug>(easymotion-s2)
 	nmap sd <Plug>(easymotion-s)
-	nmap sf <Plug>(easymotion-overwin-f)
-	map  sh <Plug>(easymotion-linebackward)
-	map  sl <Plug>(easymotion-lineforward)
+	" nmap sf <Plug>(easymotion-overwin-f)
+	map  sb <Plug>(easymotion-linebackward)
+	map  sf <Plug>(easymotion-lineforward)
 	" map sl <Plug>(easymotiong:EasyMotion_do_mapping-lineforward)
 	map  sj <Plug>(easymotion-j)
 	map  sk <Plug>(easymotion-k)

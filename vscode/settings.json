@@ -81,76 +81,92 @@
     },
     {
       "before": [
+        "s",
+        "d"
+      ],
+      "after": [
         "leader",
+        "leader",
+        "s",
+        "<char>"
+      ]
+    },
+    {
+      "before": [
+        "s",
         "s"
       ],
       "after": [
         "leader",
         "leader",
-        "/"
+        "2",
+        "s",
+        "<char>",
+        "<char>"
       ]
     },
     {
       "before": [
+        "s",
+        "f"
+      ],
+      "after": [
         "leader",
+        "leader",
+        "f",
+        "<char>"
+      ]
+    },
+    {
+      "before": [
+        "s",
+        "b"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "F",
+        "<char>"
+      ]
+    },
+    {
+      "before": [
+        "s",
+        "j"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "j",
+      ]
+    },
+    {
+      "before": [
+        "s",
+        "k"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "k",
+      ]
+    },
+    {
+      "before": [
+        "s",
         "l"
       ],
       "after": [
         "leader",
         "leader",
-        "leader",
-        "b",
-        "d",
-        "j",
-        "k"
+        "l"
       ]
     },
-    {
-      "before": [
-        "leader",
-        "c"
-      ],
-      "after": [
-        "leader",
-        "leader",
-        "c"
-      ]
-    },
-    {
-      "before": [
-        "leader",
-        "w"
-      ],
-      "after": [
-        "leader",
-        "leader",
-        "leader",
-        "b",
-        "d",
-        "w"
-      ]
-    },
-    {
-      "before": [
-        "leader",
-        "e"
-      ],
-      "after": [
-        "leader",
-        "leader",
-        "leader",
-        "b",
-        "d",
-        "e"
-      ]
-    }
   ],
   "vim.handleKeys": {
     "<C-h>": false
   },
   "vim.leader": ";",
-  // Vim - EasyMotion
-  "vim.easymotionMarkerBackgroundColor": "#000000",
   "vim.easymotionMarkerForegroundColorOneChar": "#ff0000",
   // Vim - Surround
   "vim.surround": true,
@@ -208,7 +224,7 @@
   "better-comments.multilineComments": true,
   "workbench.startupEditor": "newUntitledFile",
   "editor.fontSize": 14,
-  "vim.easymotionMarkerFontSize": "16",
+  "vim.easymotionMarkerFontSize": "18",
   "vim.easymotionMarkerHeight": 16,
   "sourcekit-lsp.serverPath": "/Users/thriller/Downloads/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
   "vim.highlightedyank.enable": true,
@@ -233,5 +249,9 @@
     "statusBar.background": "#005f5f",
     "statusBar.noFolderBackground": "#005f5f",
     "statusBar.debuggingBackground": "#005f5f"
-  }
+  },
+  "vim.easymotionMarkerForegroundColorTwoChar": "#fdb32b",
+  "vim.easymotionKeys": "fjdksweoavn",
+  "vim.easymotionMarkerWidthPerChar": 10,
+  "vim.easymotionMarkerBackgroundColor": "#007accd0"
 }
