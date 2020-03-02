@@ -62,7 +62,6 @@
   "files.associations": {
     "*.vue": "vue"
   },
-  "prettier.eslintIntegration": true,
   // Code Runner
   "code-runner.runInTerminal": true,
   "code-runner.saveFileBeforeRun": true,
@@ -102,5 +101,34 @@
   "C_Cpp.updateChannel": "Insiders",
   "editor.largeFileOptimizations": false,
   "breadcrumbs.enabled": true,
-  "editor.renderControlCharacters": false
+  "editor.renderControlCharacters": false,
+  "vim.camelCaseMotion.enable": true,
+  "vim.statusBarColorControl": true,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#5f0000",
+    "statusBar.noFolderBackground": "#5f0000",
+    "statusBar.debuggingBackground": "#5f0000"
+  },
+  // SDE
+  "sde.languageServerMode": "sourcekit-lsp",
+  "swift.targets": [
+    {
+      "name": "NetworkMonitor",
+      "path": "NetworkMonitor/NetworkMonitor",
+      "sources": ["**/*.swift"],
+      "compilerArguments": [
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk",
+        "-target",
+        "arm64-apple-ios12.0"
+      ]
+    },
+  ],
+  "swift.path.shell": "/bin/zsh",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

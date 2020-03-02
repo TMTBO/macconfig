@@ -35,9 +35,9 @@ BS_ZSH_TOOLS=${BS_ZSH_BASE}/tools
 
 source $BS_ZSH_BASE/zsh-config/common.sh
 source /usr/local/etc/profile.d/autojump.sh
-#if brew ls --versions scmpuff > /dev/null; then
-#    eval "$(scmpuff init -s --aliases=false)"
-#fi
+if brew ls --versions scmpuff > /dev/null; then
+    eval "$(scmpuff init -s --aliases=false)"
+fi
 
 eval "$(scmpuff init -s)"
 
