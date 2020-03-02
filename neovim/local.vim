@@ -56,6 +56,29 @@ if executable('sourcekit-lsp')
         \ })
 endif
 
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    nmap <buffer> lgd <plug>(lsp-definition)
+    nmap <buffer> lgi <plug>(lsp-implementation)
+    nmap <buffer> lpd <plug>(lsp-peek-definition)
+    nmap <buffer> lca <plug>(lsp-code-action)
+    nmap <buffer> lrn <plug>(lsp-rename)
+    nmap <buffer> lnd <plug>(lsp-next-diagnostic)
+    nmap <buffer> lpd <plug>(lsp-previous-diagnostic)
+    nmap <buffer> lr <plug>(lsp-references)
+    nmap <buffer> lpr <plug>(lsp-previous-reference)
+    nmap <buffer> lnr <plug>(lsp-next-reference)
+    nmap <buffer> lspstatus <plug>(lsp-status)
+    " refer to doc to add more commands
+endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
 " keymapping
 
 inoremap jj <esc>

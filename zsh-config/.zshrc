@@ -90,3 +90,5 @@ export PATH="$HOME/.rvm/bin:$PATH"
 export LC_ALL=en_US.UTF-8
 fpath=(~/.macbootstrap/zsh-config $fpath)
 
+-e fpath=(~/.macbootstrap/zsh-config $fpath)
+
