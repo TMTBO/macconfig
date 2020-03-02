@@ -3,9 +3,8 @@ source basic.sh
 
 sudo ./install-steps/macos.sh
 
-brew install python3
-brew install mas
-pip3 install shadowsocks
+brew install python3 mas
+# pip3 install shadowsocks
 
 # install and use shadowsocks
 #if not_tt_network; then
@@ -119,6 +118,7 @@ brew_install catimg
 brew_install gpg
 brew_install icdiff
 brew_install scmpuff
+brew_install z
 brew_install fzf
 brew_install fd
 brew_install the_silver_searcher
@@ -126,11 +126,13 @@ brew_install nvim
 brew_install exiftool
 brew_install archey
 brew_install ranger
-brew tap dart-lang/dart
-brew install dart
+brew_install git-lfs && git lfs install
+brew_install cloc
+# brew tap dart-lang/dart
+# brew install dart
 # install vapor
-brew tap vapor/tap
-brew install vapor/tap/vapor
+# brew tap vapor/tap
+# brew install vapor/tap/vapor
 $(brew --prefix)/opt/fzf/install --all
 
 # link git config
@@ -156,22 +158,22 @@ backup_file ~/.config/nvim/
 ./intellij/setup.sh
 
 # install flutter
-if [[ ! -e ~/Developer/Flutter/flutter ]]; then
-    export PUB_HOSTED_URL=https://pub.flutter-io.cn
-    export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
-    git clone -b dev https://github.com/flutter/flutter.git ~/Developer/Flutter/flutter
-    export PATH="~/Developer/Flutter/flutter/bin:$PATH"
-    cd ~/Developer/Flutter/flutter
-    flutter doctor
-fi
+# if [[ ! -e ~/Developer/Flutter/flutter ]]; then
+#     export PUB_HOSTED_URL=https://pub.flutter-io.cn
+#     export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+#     git clone -b dev https://github.com/flutter/flutter.git ~/Developer/Flutter/flutter
+#     export PATH="~/Developer/Flutter/flutter/bin:$PATH"
+#     cd ~/Developer/Flutter/flutter
+#     flutter doctor
+# fi
 
 # install sourcekit-lsp
-if [[ ! -e ~/Developer/sourcekit-lsp ]]; then
-    git clone https://github.com/apple/sourcekit-lsp.git ~/Developer/sourcekit-lsp
-    swift package update
-    swift build
-    ln -s ~/Developer/sourcekit-lsp/.build/debug/sourcekit-lsp /usr/local/bin/sourcekit-lsp
-fi
+# if [[ ! -e ~/Developer/sourcekit-lsp ]]; then
+#     git clone https://github.com/apple/sourcekit-lsp.git ~/Developer/sourcekit-lsp
+#     swift package update
+#     swift build
+#     ln -s ~/Developer/sourcekit-lsp/.build/debug/sourcekit-lsp /usr/local/bin/sourcekit-lsp
+# fi
 
 # ESLint configuration
 # backup_file ~/.eslintrc.js
@@ -200,4 +202,12 @@ if [[ ! -e ~/.ssh ]]; then
     mkdir ~/.ssh
 fi
 ln -s ~/.macbootstrap/zsh-config/ssh_config ~/.ssh/config
+
+# install appstore apps
+./appstore.sh
+
+# SPM Shell Completion Scripts
+swift package completion-tool generate-zsh-script > ~/.macbootstrap/zsh-config/_swift
+echo -e "fpath=(~/.macbootstrap/zsh-config \$fpath)\n" >> ~/.zshrc
+compinit
 

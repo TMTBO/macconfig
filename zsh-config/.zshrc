@@ -58,13 +58,13 @@ declare -a NODE_GLOBALS=(`find $NVM_DIR/versions/node -maxdepth 3 -type l -whole
 NODE_GLOBALS+=("node")
 NODE_GLOBALS+=("nvm")
 
-# load_nvm () {
-#  [ -s "$NVM_SH" ] && . "$NVM_SH"
-#}
-#
-#for cmd in "${NODE_GLOBALS[@]}"; do
-#  eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
-#done
+load_nvm () {
+  [ -s "$NVM_SH" ] && . "$NVM_SH"
+}
+
+for cmd in "${NODE_GLOBALS[@]}"; do
+  eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
+done
 
 # Bind key
 bindkey ';' autosuggest-execute
@@ -74,19 +74,19 @@ autoload -U bashcompinit
 bashcompinit
 
 # Homebrew
-export PATH="/usr/local/sbin:$PATH"
-# Swift
-export SOURCEKIT_TOOLCHAIN_PATH=/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2019-07-11-a.xctoolchain
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 # Ruby
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 # Flutter
-export PATH="$PATH:$HOME/Developer/Flutter/flutter/bin"
-export ENABLE_FLUTTER_DESKTOP=true
+# export PATH="$PATH:$HOME/Developer/Flutter/flutter/bin"
+# export ENABLE_FLUTTER_DESKTOP=true
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$HOME/.rvm/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export LC_ALL=en_US.UTF-8
+fpath=(~/.macbootstrap/zsh-config $fpath)
+

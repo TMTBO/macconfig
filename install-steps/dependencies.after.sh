@@ -14,31 +14,31 @@ brew cask install --appdir='/usr/local/bin' qlimagesize qlvideo # Avoid password
 # ---------------
 
 # Install Charles
-if [[ -e /Applications/Charles.app ]]; then
-    echo "You have installed Charles"
-else
-    if [[ ! -e $HOME/Downloads/Charles.app.zip ]]; then
-        curl "http://p2w4johvr.bkt.clouddn.com/Charles.app.zip" -o ~/Downloads/Charles.app.zip
-    fi
+# if [[ -e /Applications/Charles.app ]]; then
+#     echo "You have installed Charles"
+# else
+#     if [[ ! -e $HOME/Downloads/Charles.app.zip ]]; then
+#         curl "http://p2w4johvr.bkt.clouddn.com/Charles.app.zip" -o ~/Downloads/Charles.app.zip
+#     fi
 
-    unzip -q $HOME/Downloads/Charles.app.zip -d /Applications
-    rm $HOME/Downloads/Charles.app.zip
-fi
+#     unzip -q $HOME/Downloads/Charles.app.zip -d /Applications
+#     rm $HOME/Downloads/Charles.app.zip
+# fi
 
 # Install Dash
-if [[ -e /Applications/Dash.app ]]; then
-    echo "You have installed Dash"
-else
-    if [[ ! -e $HOME/Downloads/Dash.app.zip ]]; then
-        curl "http://p2w4johvr.bkt.clouddn.com/Dash.app.zip" -o ~/Downloads/Dash.app.zip
-    fi
+# if [[ -e /Applications/Dash.app ]]; then
+#     echo "You have installed Dash"
+# else
+#     if [[ ! -e $HOME/Downloads/Dash.app.zip ]]; then
+#         curl "http://p2w4johvr.bkt.clouddn.com/Dash.app.zip" -o ~/Downloads/Dash.app.zip
+#     fi
 
-    unzip -q $HOME/Downloads/Dash.app.zip -d /Applications
-    rm $HOME/Downloads/Dash.app.zip
-fi
+#     unzip -q $HOME/Downloads/Dash.app.zip -d /Applications
+#     rm $HOME/Downloads/Dash.app.zip
+# fi
 
 # Install Alfred
-if [[ -e "/Applications/Alfred 3.app" ]]; then
+if [[ -e "/Applications/Alfred 4.app" ]]; then
     echo "You have installed Alfred"
 else
     if [[ ! -e "$HOME/Library/Application Support/Alfred 3" ]]; then
@@ -59,11 +59,11 @@ fi
 
 # Powerline-font
 # ---------------
-git clone --depth=1 https://github.com/powerline/fonts.git --depth=1
-cd fonts
-./install.sh
-cd ..
-rm -rf fonts
+# git clone --depth=1 https://github.com/powerline/fonts.git --depth=1
+# cd fonts
+# ./install.sh
+# cd ..
+# rm -rf fonts
 
 # Python
 # ---------------
@@ -83,5 +83,5 @@ fi
 export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix nvm)/nvm.sh
 export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
-nvm install 9.11.0
+nvm install 13.13.0
 

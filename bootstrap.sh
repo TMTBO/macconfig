@@ -24,4 +24,3 @@ brew install git
 git clone --depth=1 git@github.com:TMTBO/macconfig.git ~/.macbootstrap
 cd ~/.macbootstrap
 bash install.sh
-bash appstore.sh

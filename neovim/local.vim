@@ -1,5 +1,8 @@
 set relativenumber
 
+" Markdown
+autocmd FileType markdown setlocal nospell
+
 let g:operator#surround#blocks = {
     \   '-' : [
     \       { 'block' : ['(', ')'], 'motionwise' : ['char', 'line', 'block'], 'keys' : ['(', ')'] },
@@ -55,39 +58,67 @@ endif
 
 " keymapping
 
+inoremap jj <esc>
 :nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <silent> gn :<C-u>tabNext<CR>
 nnoremap <silent> <C-q> :<C-u>:quit!<CR>
 inoremap <silent> <C-q> <Esc>:<C-u>:quit!<CR>
 
 " EasyMotion
+
+let g:EasyMotion_do_mapping = 1
 let g:EasyMotion_smartcase = 1
-let g:EasyMotion_use_smartsign_us = 1
+let g:EasyMotion_use_upper = 1
 let g:EasyMotion_startofline = 0
+let g:EasyMotion_prompt = 'Jump to 👉 '
+let g:EasyMotion_keys = 'FJDKSWEOAVN'
 
 if dein#tap('vim-easymotion')
 	nmap ss <Plug>(easymotion-s2)
 	nmap sd <Plug>(easymotion-s)
-	nmap sf <Plug>(easymotion-overwin-f)
-	map  sh <Plug>(easymotion-linebackward)
-	" map  sl <Plug>(easymotion-lineforward)
-  map sl <Plug>(easymotiong:EasyMotion_do_mapping-lineforward)
+	" nmap sf <Plug>(easymotion-overwin-f)
+	map  sb <Plug>(easymotion-linebackward)
+	map  sf <Plug>(easymotion-lineforward)
+	" map sl <Plug>(easymotiong:EasyMotion_do_mapping-lineforward)
 	map  sj <Plug>(easymotion-j)
 	map  sk <Plug>(easymotion-k)
 	map  s/ <Plug>(easymotion-sn)
 	omap s/ <Plug>(easymotion-tn)
 	map  sn <Plug>(easymotion-next)
 	map  sp <Plug>(easymotion-prev)
+	map  . <Plug>(easymotion-repeat)
 endif
+
+" insearch
+let g:incsearch#magic = '\v'
+
+" You can use other keymappings like <C-l> instead of <CR> if you want to
+" use these mappings as default search and sometimes want to move cursor with
+" EasyMotion.
+function! s:incsearch_config(...) abort
+  return incsearch#util#deepextend(deepcopy({
+  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  \   'keymap': {
+  \     "\<CR>": '<Over>(easymotion)'
+  \   },
+  \   'is_expr': 0
+  \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
+noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
+noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
+
+" incsearch.vim x fuzzy x vim-easymotion
 
 function! s:config_easyfuzzymotion(...) abort
   return extend(copy({
-  \   'converters': [incsearch#config#fuzzyword#converter()],
-  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  \   'converters': [incsearch#config#fuzzy#converter()],
+  \   'modules': [incsearch#config#easymotion#module()],
   \   'keymap': {"\<CR>": '<Over>(easymotion)'},
   \   'is_expr': 0,
   \   'is_stay': 1
   \ }), get(a:, 1, {}))
 endfunction
 
-noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion()
+noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())

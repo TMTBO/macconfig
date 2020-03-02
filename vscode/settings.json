@@ -23,12 +23,150 @@
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
   "vim.visualstar": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    },
+    {
+      "before": [
+        "k",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    },
+    {
+      "before": [
+        "h",
+        "h"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "g",
+        "c"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.commentLine",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "C"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.commentBlock",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": [
+        "s",
+        "d"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "s",
+        "<char>"
+      ]
+    },
+    {
+      "before": [
+        "s",
+        "s"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "2",
+        "s",
+        "<char>",
+        "<char>"
+      ]
+    },
+    {
+      "before": [
+        "s",
+        "f"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "f",
+        "<char>"
+      ]
+    },
+    {
+      "before": [
+        "s",
+        "b"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "F",
+        "<char>"
+      ]
+    },
+    {
+      "before": [
+        "s",
+        "j"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "j",
+      ]
+    },
+    {
+      "before": [
+        "s",
+        "k"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "k",
+      ]
+    },
+    {
+      "before": [
+        "s",
+        "l"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "l"
+      ]
+    },
+  ],
   "vim.handleKeys": {
     "<C-h>": false
   },
   "vim.leader": ";",
-  // Vim - EasyMotion
-  "vim.easymotionMarkerBackgroundColor": "#000000",
   "vim.easymotionMarkerForegroundColorOneChar": "#ff0000",
   // Vim - Surround
   "vim.surround": true,
@@ -87,9 +225,9 @@
   "better-comments.multilineComments": true,
   "workbench.startupEditor": "newUntitledFile",
   "editor.fontSize": 14,
-  "vim.easymotionMarkerFontSize": "16",
+  "vim.easymotionMarkerFontSize": "18",
   "vim.easymotionMarkerHeight": 16,
-  "sourcekit-lsp.serverPath": "/usr/local/bin/sourcekit-lsp",
+  "sourcekit-lsp.serverPath": "/Users/thriller/Downloads/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
   "vim.highlightedyank.enable": true,
   "[markdown]": {
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
@@ -131,4 +269,22 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
+}
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.value": 5,
+  "workbench.editor.limit.perEditorGroup": true,
+  "cSpell.userWords": [
+    "relativenumber"
+  ],
+  "vim.statusBarColorControl": true,
+  "vim.vimrc.enable": true,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f",
+    "statusBar.debuggingBackground": "#005f5f"
+  },
+  "vim.easymotionMarkerForegroundColorTwoChar": "#fdb32b",
+  "vim.easymotionKeys": "fjdksweoavn",
+  "vim.easymotionMarkerWidthPerChar": 10,
+  "vim.easymotionMarkerBackgroundColor": "#007accd0"
 }

@@ -2,35 +2,29 @@
 - repo: rizzatti/dash.vim
 
 # LSP
-- { repo: ryanolsonx/vim-lsp-swift, on_ft: Swift }
+# - { repo: ryanolsonx/vim-lsp-swift, on_ft: Swift }
 - repo: prabirshrestha/async.vim
 - repo: prabirshrestha/vim-lsp
 
 # Easymotion Plugs
 - repo: easymotion/vim-easymotion
-  on_map: { n: <Plug> }
-  hook_source: |
-    let g:EasyMotion_do_mapping = 0
-    let g:EasyMotion_prompt = 'Jump to → '
-    let g:EasyMotion_keys = 'fjdksweoavn'
-    let g:EasyMotion_smartcase = 1
-    let g:EasyMotion_use_smartsign_us = 1
+
+# incsearch
 - repo: haya14busa/incsearch.vim
 - repo: haya14busa/incsearch-fuzzy.vim
 - repo: haya14busa/incsearch-easymotion.vim
 
 # Dart
-- repo: dart-lang/dart-vim-plugin
-  on_ft: Dart
-- repo: natebosch/vim-lsc
-  on_ft: Dart
-- repo: natebosch/vim-lsc-dart
-  on_ft: Dart
+# - repo: dart-lang/dart-vim-plugin
+#   on_ft: Dart
+# - repo: natebosch/vim-lsc
+#   on_ft: Dart
+# - repo: natebosch/vim-lsc-dart
+#   on_ft: Dart
 
 # deoplete
 - repo: Shougo/deoplete-clangx
   on_ft: [C, C++, Objective-C, Objective-C++, Swift]
-
 # coc
 # - repo: neoclide/coc.nvim
 #   merge: 0
