@@ -89,6 +89,5 @@ export PATH="$HOME/.rvm/bin:$PATH"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export LC_ALL=en_US.UTF-8
 fpath=(~/.macbootstrap/zsh-config $fpath)
-
--e fpath=(~/.macbootstrap/zsh-config $fpath)
+fpath=(/usr/local/share/zsh-completions $fpath)
 

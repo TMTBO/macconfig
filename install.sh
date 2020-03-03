@@ -128,6 +128,7 @@ brew_install archey
 brew_install ranger
 brew_install git-lfs && git lfs install
 brew_install cloc
+brew_install zsh-completions
 # brew tap dart-lang/dart
 # brew install dart
 # install vapor

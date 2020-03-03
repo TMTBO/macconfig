@@ -56,6 +56,11 @@ if executable('sourcekit-lsp')
         \ })
 endif
 
+" vim-lsp
+
+let g:lsp_log_verbose = 0
+let g:lsp_log_file = ""
+
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
     setlocal signcolumn=yes
