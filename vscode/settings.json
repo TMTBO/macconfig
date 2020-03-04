@@ -229,31 +229,21 @@
   "vim.easymotionMarkerHeight": 16,
   "sourcekit-lsp.serverPath": "/Users/thriller/Downloads/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
   "vim.highlightedyank.enable": true,
-  "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "diffEditor.ignoreTrimWhitespace": false,
   "C_Cpp.updateChannel": "Insiders",
   "editor.largeFileOptimizations": false,
   "breadcrumbs.enabled": true,
   "editor.renderControlCharacters": false,
   "vim.camelCaseMotion.enable": true,
-  "vim.statusBarColorControl": true,
-  "workbench.colorCustomizations": {
-    "statusBar.background": "#5f0000",
-    "statusBar.noFolderBackground": "#5f0000",
-    "statusBar.debuggingBackground": "#5f0000"
-  },
   // SDE
   "sde.languageServerMode": "sourcekit-lsp",
   "swift.targets": [
     {
       "name": "NetworkMonitor",
       "path": "NetworkMonitor/NetworkMonitor",
-      "sources": ["**/*.swift"],
+      "sources": [
+        "**/*.swift"
+      ],
       "compilerArguments": [
         "-sdk",
         "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk",
@@ -263,13 +253,6 @@
     },
   ],
   "swift.path.shell": "/bin/zsh",
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
-}
   "workbench.editor.limit.enabled": true,
   "workbench.editor.limit.value": 5,
   "workbench.editor.limit.perEditorGroup": true,
@@ -286,5 +269,8 @@
   "vim.easymotionMarkerForegroundColorTwoChar": "#fdb32b",
   "vim.easymotionKeys": "fjdksweoavn",
   "vim.easymotionMarkerWidthPerChar": 10,
-  "vim.easymotionMarkerBackgroundColor": "#007accd0"
+  "vim.easymotionMarkerBackgroundColor": "#007accd0",
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
 }
