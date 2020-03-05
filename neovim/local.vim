@@ -60,6 +60,7 @@ endif
 
 let g:lsp_log_verbose = 0
 let g:lsp_log_file = ""
+let g:lsp_diagnostics_enabled = 1
 
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
