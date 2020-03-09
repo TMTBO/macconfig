@@ -19,7 +19,7 @@ if [[ ! -e /Applications/iTerm.app ]]; then
     defaults delete com.googlecode.iterm2
     cp config/com.googlecode.iterm2.plist $HOME/Library/Preferences
     # config background image location
-    command="set :New\ Bookmarks:0:Background\ Image\ Location /Users/""$(whoami)""/.macbootstrap/assets/iterm-background.jpg"
+    # command="set :New\ Bookmarks:0:Background\ Image\ Location /Users/""$(whoami)""/.macbootstrap/assets/iterm-background.jpg"
     /usr/libexec/PlistBuddy -c "$command" $HOME/Library/Preferences/com.googlecode.iterm2.plist
     defaults read -app iTerm >/dev/null
 else
