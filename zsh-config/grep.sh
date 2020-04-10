@@ -9,3 +9,7 @@ function xgrep() {
     fi
 }
 
+function xfind() {
+    find . -type f -exec cat {} +
+}
+
