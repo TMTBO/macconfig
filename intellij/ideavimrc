@@ -5,8 +5,12 @@ set incsearch
 set ignorecase
 set smartcase
 set showmode
-set number
-" set relativenumber
+" set number
+set relativenumber
+set easymotion
+set suround
+set multiple-cursors
+set commentary
 set scrolloff=3
 set history=100000
 set clipboard=unnamed
@@ -145,10 +149,10 @@ nnoremap <Leader>tl Vy<CR>:action ActivateTerminalToolWindow<CR>
 vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR>
 
 " KJump
-nmap <leader><leader>s :action KJumpAction<cr>
-nmap <leader><leader>w :action KJumpAction.Word0<cr>
-nmap <leader><leader>c :action KJumpAction.Word1<cr>
-nmap <leader><leader>l :action KJumpAction.Line<cr>
+" nmap <leader><leader>s :action KJumpAction<cr>
+" nmap <leader><leader>w :action KJumpAction.Word0<cr>
+" nmap <leader><leader>c :action KJumpAction.Word1<cr>
+" nmap <leader><leader>l :action KJumpAction.Line<cr>
 
 
 " Press `f` to activate AceJump
@@ -158,4 +162,25 @@ map F :action AceTargetAction<CR>
 " Press `g` to activate Line Mode
 map g :action AceLineAction<CR>
 
+" EasyMotion
 
+let g:EasyMotion_do_mapping = 1
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_upper = 1
+let g:EasyMotion_startofline = 0
+let g:EasyMotion_prompt = 'Jump to 👉 '
+let g:EasyMotion_keys = 'FJDKSWEOAVN'
+
+nmap ss <Plug>(easymotion-s2)
+nmap sd <Plug>(easymotion-s)
+" nmap sf <Plug>(easymotion-overwin-f)
+map  sb <Plug>(easymotion-linebackward)
+map  sf <Plug>(easymotion-lineforward)
+" map sl <Plug>(easymotiong:EasyMotion_do_mapping-lineforward)
+map  sj <Plug>(easymotion-j)
+map  sk <Plug>(easymotion-k)
+map  s/ <Plug>(easymotion-sn)
+omap s/ <Plug>(easymotion-tn)
+map  sn <Plug>(easymotion-next)
+map  sp <Plug>(easymotion-prev)
+map  . <Plug>(easymotion-repeat)
