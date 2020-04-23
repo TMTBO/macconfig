@@ -6,4 +6,4 @@ command alias reveal_stop expr (void)[(NSNotificationCenter*)[NSNotificationCent
 command script import /usr/local/opt/chisel/libexec/fblldb.py
 
 # load lldb commmand alias and configuration provided by bestswifter
-command source ~/.macbootstrap/zsh-config/bs_lldb_extension
+# command source ~/.macbootstrap/zsh-config/bs_lldb_extension
