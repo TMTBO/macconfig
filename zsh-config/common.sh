@@ -14,3 +14,4 @@ for f in $BS_ZSH_BASE/zsh-config/functions/*.sh; do source $f; done
 source $BS_ZSH_BASE/zsh-config/platform.mac.sh
 #source $BS_ZSH_BASE/zsh-config/personalized.sh
 source $BS_ZSH_BASE/zsh-config/colors.sh
+source $BS_ZSH_BASE/zsh-config/maven.sh

@@ -114,7 +114,12 @@ nnoremap gs :action GotoSymbol<CR>
 nnoremap gb :action Back<CR>
 
 nnoremap rn :action RenameElement<CR>
+nnoremap em :action ExtractMethod<CR>
 nnoremap ch :action CallHierarchy<CR>
+
+nnoremap run :action Run<CR>
+nnoremap debug :action Debug<CR>
+nnoremap jdebug :action JRebel Debug<CR>
 
 nnoremap <Leader>ga :action GotoAction<CR>
 nnoremap <Leader>gc :action GotoClass<CR>
@@ -159,14 +164,13 @@ vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR>
 
 
 " Press `f` to activate AceJump
-map f :action AceAction<CR>
+" map f :action AceAction<CR>
 " Press `F` to activate Target Mode
-map F :action AceTargetAction<CR>
+" map F :action AceTargetAction<CR>
 " Press `g` to activate Line Mode
-map g :action AceLineAction<CR>
+" map g :action AceLineAction<CR>
 
 " EasyMotion
-
 let g:EasyMotion_do_mapping = 1
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_upper = 1
