@@ -227,7 +227,7 @@
   "editor.fontSize": 14,
   "vim.easymotionMarkerFontSize": "18",
   "vim.easymotionMarkerHeight": 16,
-  "sourcekit-lsp.serverPath": "/Users/thriller/Downloads/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
+  "sourcekit-lsp.serverPath": "/Users/thriller/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
   "vim.highlightedyank.enable": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "C_Cpp.updateChannel": "Insiders",
@@ -279,5 +279,6 @@
   "tabnine.experimentalAutoImports": true,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "python.pythonPath": "/usr/bin/python"
 }
