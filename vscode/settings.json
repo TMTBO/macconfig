@@ -262,9 +262,9 @@
   "vim.statusBarColorControl": true,
   "vim.vimrc.enable": true,
   "workbench.colorCustomizations": {
-    "statusBar.background": "#5f0000",
-    "statusBar.noFolderBackground": "#5f0000",
-    "statusBar.debuggingBackground": "#5f0000"
+    "statusBar.background": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f",
+    "statusBar.debuggingBackground": "#005f5f"
   },
   "vim.easymotionMarkerForegroundColorTwoChar": "#fdb32b",
   "vim.easymotionKeys": "fjdksweoavn",
@@ -280,5 +280,6 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "python.pythonPath": "/usr/bin/python"
+  "python.pythonPath": "/usr/bin/python",
+  "java.semanticHighlighting.enabled": true
 }
