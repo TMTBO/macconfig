@@ -25,7 +25,12 @@
 # deoplete
 - repo: Shougo/deoplete-clangx
   on_ft: [C, C++, Objective-C, Objective-C++, Swift]
+
+- repo: mhinz/vim-startify
+- repo: vim-airline/vim-airline
+- repo: vim-airline/vim-airline-themes
+- repo: ojroques/vim-scrollstatus
 # coc
-# - repo: neoclide/coc.nvim
-#   merge: 0
-#   build: ./install.sh nightly
+- repo: neoclide/coc.nvim
+  merge: 0
+  rev: release
