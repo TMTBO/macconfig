@@ -129,6 +129,7 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> lnr <plug>(lsp-next-reference)
     nmap <buffer> lspstatus <plug>(lsp-status)
     " refer to doc to add more commands
+
 endfunction
 
 augroup lsp_install
