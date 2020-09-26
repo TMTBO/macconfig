@@ -29,7 +29,7 @@
 - repo: mhinz/vim-startify
 - repo: vim-airline/vim-airline
 - repo: vim-airline/vim-airline-themes
-- repo: ojroques/vim-scrollstatus
+
 # coc
 - repo: neoclide/coc.nvim
   merge: 0
