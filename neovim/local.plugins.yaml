@@ -34,6 +34,7 @@
 # - repo: vim-airline/vim-airline
 # - repo: vim-airline/vim-airline-themes
 
+- repo: preservim/tagbar
 # coc
 - repo: neoclide/coc.nvim
   merge: 0

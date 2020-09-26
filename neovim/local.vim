@@ -51,17 +51,17 @@ let g:operator#surround#blocks = {
     \ }
 " }}}
 
-" Start NERDTree {{{
+" Start Defx {{{
 
-" autocmd VimEnter * NERDTree
+autocmd VimEnter * :Defx
 " Go to previous (last accessed) window
-" autocmd VimEnter * wincmd p
+autocmd VimEnter * wincmd p
 
 " }}}
 
 " Open Tagbar {{{
 
-" autocmd VimEnter * TagbarToggle
+autocmd VimEnter * TagbarToggle
 nmap <F8> :TagbarToggle<CR>
 
 " }}}
@@ -85,7 +85,7 @@ augroup END
 " }}}
 
 " Terminal {{{
-nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
+nmap ;t :bo sp term://zsh\|resize 10<CR>i
 tnoremap <Esc> <C-\><C-n>
 
 " }}}
@@ -286,59 +286,58 @@ endif
 
 " airline {{{
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_theme='solarized'
-" let g:airline_solarized_bg='dark'
-let g:airline#extensions#hunks#coc_git = 1
-let g:airline#extensions#branch#format = 1
-let g:airline#extensions#vista#enabled = 0
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.maxlinenr = '㏑'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = 'Ɇ'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.maxlinenr = ''
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#formatter = 'unique_tail'
+" let g:airline_theme='solarized'
+" " let g:airline_solarized_bg='dark'
+" let g:airline#extensions#hunks#coc_git = 1
+" let g:airline#extensions#branch#format = 1
+" let g:airline#extensions#vista#enabled = 0
+" 
+" if !exists('g:airline_symbols')
+"     let g:airline_symbols = {}
+" endif
+" 
+" " unicode symbols
+" let g:airline_left_sep = '»'
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '«'
+" let g:airline_right_sep = '◀'
+" let g:airline_symbols.crypt = '🔒'
+" let g:airline_symbols.linenr = '☰'
+" let g:airline_symbols.linenr = '␊'
+" let g:airline_symbols.linenr = '␤'
+" let g:airline_symbols.linenr = '¶'
+" let g:airline_symbols.maxlinenr = ''
+" let g:airline_symbols.maxlinenr = '㏑'
+" let g:airline_symbols.branch = '⎇'
+" let g:airline_symbols.paste = 'ρ'
+" let g:airline_symbols.paste = 'Þ'
+" let g:airline_symbols.paste = '∥'
+" let g:airline_symbols.spell = 'Ꞩ'
+" let g:airline_symbols.notexists = 'Ɇ'
+" let g:airline_symbols.whitespace = 'Ξ'
+" 
+" " powerline symbols
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = ''
+" let g:airline_symbols.branch = ''
+" let g:airline_symbols.readonly = ''
+" let g:airline_symbols.linenr = '☰'
+" let g:airline_symbols.maxlinenr = ''
 
 " }}}
 
 " coc {{{
 
 let g:coc_global_extensions = [
-				\ 'coc-marketplace',
+	\ 'coc-marketplace',
         \ 'coc-actions',
         \ 'coc-css',
         \ 'coc-diagnostic',
-        \ 'coc-explorer',
         \ 'coc-flutter-tools',
         \ 'coc-gitignore',
         \ 'coc-html',
@@ -360,7 +359,7 @@ let g:coc_global_extensions = [
         \ 'coc-vetur',
         \ 'coc-yaml',
         \ 'coc-yank',
-		    \ 'coc-git',
+	\ 'coc-git',
         \ 'coc-vimlsp']
 
 " }}}
