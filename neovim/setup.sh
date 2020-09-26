@@ -9,7 +9,7 @@ fi
 ln -s ~/.macbootstrap/neovim/local.vim ~/.config/nvim/config/local.vim
 ln -s ~/.macbootstrap/neovim/local.plugins.yaml ~/.config/nvim/config/local.plugins.yaml
 ln -s ~/.macbootstrap/neovim/coc-settings.json ~/.config/nvim/coc-settings.json
-ln -s ~/.config/nvim/vimrc ~/.vimrc
+ln -s ~/.config/nvim ~/.vim
 
 cd ~/.config/nvim
 ./venvs.sh
