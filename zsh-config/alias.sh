@@ -65,3 +65,8 @@ alias pub='bundle exec pod update'
 alias spminit='swift package init'
 alias spminitexec='swift package init --type executable'
 alias spmgenproj='swift package generate-xcodeproj'
+
+# Tmux
+alias t='tmux'
+alias tc='tmux -CC'
+alias ta='tmux -CC attach'

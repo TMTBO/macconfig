@@ -26,6 +26,12 @@ nnoremap <silent> gn :<C-u>tabNext<CR>
 nnoremap <silent> <C-q> :<C-u>:quit!<CR>
 inoremap <silent> <C-q> <Esc>:<C-u>:quit!<CR>
 
+" disable the arrow buttons
+noremap <UP> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 " }}}
 
 " Markdown {{{
@@ -53,15 +59,15 @@ let g:operator#surround#blocks = {
 
 " Start Defx {{{
 
-autocmd VimEnter * :Defx
+" autocmd VimEnter * :Defx
 " Go to previous (last accessed) window
-autocmd VimEnter * wincmd p
+" autocmd VimEnter * wincmd p
 
 " }}}
 
 " Open Tagbar {{{
 
-autocmd VimEnter * TagbarToggle
+" autocmd VimEnter * TagbarToggle
 nmap <F8> :TagbarToggle<CR>
 
 " }}}
@@ -73,7 +79,7 @@ function! s:CloseIfOnlyControlWinLeft()
     return
   endif
   if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
-        \ || &buftype == 'quickfix'
+       \ || &buftype == 'quickfix'
     q
   endif
 endfunction
@@ -270,12 +276,12 @@ set updatetime=100
 set shortmess+=c
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-if has("patch-8.1.1564")
+" if has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
- else
-  set signcolumn=yes
-endif
+"   set signcolumn=number
+"  else
+"   set signcolumn=yes
+" endif
 
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
@@ -367,37 +373,37 @@ let g:coc_global_extensions = [
 " GitGutter {{{
 
 " let g:gitgutter_signs = 0
-let g:gitgutter_sign_allow_clobber = 0
-let g:gitgutter_map_keys = 0
-let g:gitgutter_override_sign_column_highlight = 0
-let g:gitgutter_preview_win_floating = 1
-let g:gitgutter_sign_added = '▎'
-let g:gitgutter_sign_modified = '░'
-let g:gitgutter_sign_removed = '▏'
-let g:gitgutter_sign_removed_first_line = '▔'
-let g:gitgutter_sign_modified_removed = '▒'
+" let g:gitgutter_sign_allow_clobber = 0
+" let g:gitgutter_map_keys = 0
+" let g:gitgutter_override_sign_column_highlight = 0
+" let g:gitgutter_preview_win_floating = 1
+" let g:gitgutter_sign_added = '▎'
+" let g:gitgutter_sign_modified = '░'
+" let g:gitgutter_sign_removed = '▏'
+" let g:gitgutter_sign_removed_first_line = '▔'
+" let g:gitgutter_sign_modified_removed = '▒'
 " autocmd BufWritePost * GitGutter
-nnoremap <LEADER>gf :GitGutterFold<CR>
-nnoremap H :GitGutterPreviewHunk<CR>
-nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
-nnoremap <LEADER>g= :GitGutterNextHunk<CR
+" nnoremap <LEADER>gf :GitGutterFold<CR>
+" nnoremap H :GitGutterPreviewHunk<CR>
+" nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
+" nnoremap <LEADER>g= :GitGutterNextHunk<CR
 
-highlight GitGutterAdd    guifg=#009900 ctermfg=2
-highlight GitGutterChange guifg=#bbbb00 ctermfg=3
-highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+" highlight GitGutterAdd    guifg=#009900 ctermfg=2
+" highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+" highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
 " }}}
 
 " Agit {{{
 
-nnoremap <LEADER>gl :Agit<CR>
-let g:agit_no_default_mappings = 1
+" nnoremap <LEADER>gl :Agit<CR>
+" let g:agit_no_default_mappings = 1
 
 " }}}
 
 " auto-save {{
 
-let g:auto_save = 1 
-let g:auto_save_silent = 1
+" let g:auto_save = 1 
+" let g:auto_save_silent = 1
 
 " }}}
