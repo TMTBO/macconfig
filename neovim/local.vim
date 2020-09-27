@@ -1,7 +1,40 @@
 set relativenumber
+set number
 
-" Markdown
+" configs {{{
+
+let g:python3_host_prog='/usr/local/bin/python3'
+
+" }}}
+
+" Set <LEADER> as ;
+" let mapleader=";"
+
+" Save & quit {{{
+
+noremap <silent>Q :q<CR>
+noremap <silent><C-q> :qa<CR>
+noremap <silent>S :w<CR
+
+" }}}
+
+" Keymappings {{{
+
+inoremap jj <esc>
+:nnoremap <F5> :buffers<CR>:buffer<Space>
+nnoremap <silent> gn :<C-u>tabNext<CR>
+nnoremap <silent> <C-q> :<C-u>:quit!<CR>
+inoremap <silent> <C-q> <Esc>:<C-u>:quit!<CR>
+
+" }}}
+
+" Markdown {{{
+
 autocmd FileType markdown setlocal nospell
+
+" }}}
+
+" Sround {{{
 
 let g:operator#surround#blocks = {
     \   '-' : [
@@ -16,16 +49,25 @@ let g:operator#surround#blocks = {
     \       { 'block' : ['{ ', ' }'], 'motionwise' : ['char', 'line', 'block'], 'keys' : [' {', ' }'] },
     \   ],
     \ }
+" }}}
 
-" Start NERDTree
-" autocmd VimEnter * NERDTree
+" Start Defx {{{
+
+autocmd VimEnter * :Defx
 " Go to previous (last accessed) window
-" autocmd VimEnter * wincmd p
-" Open Tagbar
-" autocmd VimEnter * TagbarToggle
+autocmd VimEnter * wincmd p
+
+" }}}
+
+" Open Tagbar {{{
+
+autocmd VimEnter * TagbarToggle
 nmap <F8> :TagbarToggle<CR>
 
-" Close NerdTree automatically
+" }}}
+
+" Close NerdTree automatically {{{
+
 function! s:CloseIfOnlyControlWinLeft()
   if winnr("$") != 1
     return
@@ -40,14 +82,22 @@ augroup CloseIfOnlyControlWinLeft
   au BufEnter * call s:CloseIfOnlyControlWinLeft()
 augroup END
 
-" Terminal
-nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
+" }}}
+
+" Terminal {{{
+nmap ;t :bo sp term://zsh\|resize 10<CR>i
 tnoremap <Esc> <C-\><C-n>
 
-" Omnifunc
+" }}}
+
+" Omnifunc {{{
+
 autocmd FileType swift setlocal omnifunc=lsp#complete
 
-" LSP
+" }}}
+
+" LSP {{{
+
 if executable('sourcekit-lsp')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'sourcekit-lsp',
@@ -56,7 +106,9 @@ if executable('sourcekit-lsp')
         \ })
 endif
 
-" vim-lsp
+" }}}
+
+" vim-lsp {{{
 
 let g:lsp_log_verbose = 0
 let g:lsp_log_file = ""
@@ -77,6 +129,7 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> lnr <plug>(lsp-next-reference)
     nmap <buffer> lspstatus <plug>(lsp-status)
     " refer to doc to add more commands
+
 endfunction
 
 augroup lsp_install
@@ -85,15 +138,9 @@ augroup lsp_install
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
-" keymapping
+" }}}
 
-inoremap jj <esc>
-:nnoremap <F5> :buffers<CR>:buffer<Space>
-nnoremap <silent> gn :<C-u>tabNext<CR>
-nnoremap <silent> <C-q> :<C-u>:quit!<CR>
-inoremap <silent> <C-q> <Esc>:<C-u>:quit!<CR>
-
-" EasyMotion
+" EasyMotion {{{
 
 let g:EasyMotion_do_mapping = 1
 let g:EasyMotion_smartcase = 1
@@ -151,3 +198,206 @@ function! s:config_easyfuzzymotion(...) abort
 endfunction
 
 noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
+
+" }}}
+
+" Coc {{{
+
+" coc.nvim settings
+" ---
+
+" Don't load the defx-git plugin file, not needed
+let b:defx_git_loaded = 1
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use <LEADER>h to show documentation in preview window.
+nnoremap <silent> <leader>h :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocActionAsync('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>e <Plug>(coc-rename)
+
+set updatetime=100
+set shortmess+=c
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+ else
+  set signcolumn=yes
+endif
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" }}}
+
+" airline {{{
+
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#formatter = 'unique_tail'
+" let g:airline_theme='solarized'
+" " let g:airline_solarized_bg='dark'
+" let g:airline#extensions#hunks#coc_git = 1
+" let g:airline#extensions#branch#format = 1
+" let g:airline#extensions#vista#enabled = 0
+" 
+" if !exists('g:airline_symbols')
+"     let g:airline_symbols = {}
+" endif
+" 
+" " unicode symbols
+" let g:airline_left_sep = '»'
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '«'
+" let g:airline_right_sep = '◀'
+" let g:airline_symbols.crypt = '🔒'
+" let g:airline_symbols.linenr = '☰'
+" let g:airline_symbols.linenr = '␊'
+" let g:airline_symbols.linenr = '␤'
+" let g:airline_symbols.linenr = '¶'
+" let g:airline_symbols.maxlinenr = ''
+" let g:airline_symbols.maxlinenr = '㏑'
+" let g:airline_symbols.branch = '⎇'
+" let g:airline_symbols.paste = 'ρ'
+" let g:airline_symbols.paste = 'Þ'
+" let g:airline_symbols.paste = '∥'
+" let g:airline_symbols.spell = 'Ꞩ'
+" let g:airline_symbols.notexists = 'Ɇ'
+" let g:airline_symbols.whitespace = 'Ξ'
+" 
+" " powerline symbols
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = ''
+" let g:airline_symbols.branch = ''
+" let g:airline_symbols.readonly = ''
+" let g:airline_symbols.linenr = '☰'
+" let g:airline_symbols.maxlinenr = ''
+
+" }}}
+
+" coc {{{
+
+let g:coc_global_extensions = [
+	\ 'coc-marketplace',
+        \ 'coc-actions',
+        \ 'coc-css',
+        \ 'coc-diagnostic',
+        \ 'coc-flutter-tools',
+        \ 'coc-gitignore',
+        \ 'coc-html',
+        \ 'coc-json',
+        \ 'coc-lists',
+        \ 'coc-prettier',
+        \ 'coc-pyright',
+        \ 'coc-python',
+        \ 'coc-snippets',
+        \ 'coc-sourcekit',
+        \ 'coc-stylelint',
+        \ 'coc-syntax',
+        \ 'coc-tasks',
+        \ 'coc-todolist',
+        \ 'coc-translator',
+        \ 'coc-tslint-plugin',
+        \ 'coc-tsserver',
+        \ 'coc-vimlsp',
+        \ 'coc-vetur',
+        \ 'coc-yaml',
+        \ 'coc-yank',
+	\ 'coc-git',
+        \ 'coc-vimlsp']
+
+" }}}
+
+" GitGutter {{{
+
+" let g:gitgutter_signs = 0
+let g:gitgutter_sign_allow_clobber = 0
+let g:gitgutter_map_keys = 0
+let g:gitgutter_override_sign_column_highlight = 0
+let g:gitgutter_preview_win_floating = 1
+let g:gitgutter_sign_added = '▎'
+let g:gitgutter_sign_modified = '░'
+let g:gitgutter_sign_removed = '▏'
+let g:gitgutter_sign_removed_first_line = '▔'
+let g:gitgutter_sign_modified_removed = '▒'
+" autocmd BufWritePost * GitGutter
+nnoremap <LEADER>gf :GitGutterFold<CR>
+nnoremap H :GitGutterPreviewHunk<CR>
+nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
+nnoremap <LEADER>g= :GitGutterNextHunk<CR
+
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+
+" }}}
+
+" Agit {{{
+
+nnoremap <LEADER>gl :Agit<CR>
+let g:agit_no_default_mappings = 1
+
+" }}}
+
+" auto-save {{
+
+let g:auto_save = 1 
+let g:auto_save_silent = 1
+
+" }}}
