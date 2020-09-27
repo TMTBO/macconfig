@@ -19,6 +19,8 @@ zstyle ':completion:*' completer _expand _complete _ignored _correct _approximat
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=**'
 zstyle ':completion:*:*' ignored-patterns '*ORIG_HEAD'
 
+# . /usr/local/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
+
 fpath=(/usr/local/share/zsh-completions $fpath)
 compinit -u
 
@@ -85,6 +87,9 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$HOME/.rvm/bin:$PATH"
+
+# chromium depot_tools path
+export PATH="$PATH:$HOME/Developer/depot_tools"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export LC_ALL=en_US.UTF-8
