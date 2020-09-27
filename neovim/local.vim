@@ -53,15 +53,15 @@ let g:operator#surround#blocks = {
 
 " Start Defx {{{
 
-autocmd VimEnter * :Defx
+" autocmd VimEnter * :Defx
 " Go to previous (last accessed) window
-autocmd VimEnter * wincmd p
+" autocmd VimEnter * wincmd p
 
 " }}}
 
 " Open Tagbar {{{
 
-autocmd VimEnter * TagbarToggle
+" autocmd VimEnter * TagbarToggle
 nmap <F8> :TagbarToggle<CR>
 
 " }}}
@@ -92,7 +92,7 @@ tnoremap <Esc> <C-\><C-n>
 
 " Omnifunc {{{
 
-autocmd FileType swift setlocal omnifunc=lsp#complete
+" autocmd FileType swift setlocal omnifunc=lsp#complete
 
 " }}}
 
@@ -132,11 +132,11 @@ function! s:on_lsp_buffer_enabled() abort
 
 endfunction
 
-augroup lsp_install
-    au!
-    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
-    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
+" augroup lsp_install
+"     au!
+"     " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+"     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+" augroup END
 
 " }}}
 
