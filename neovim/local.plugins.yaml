@@ -39,3 +39,5 @@
 - repo: neoclide/coc.nvim
   merge: 0
   rev: release
+
+- repo: tpope/vim-surround

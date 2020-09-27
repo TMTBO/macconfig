@@ -262,9 +262,9 @@
   "vim.statusBarColorControl": true,
   "vim.vimrc.enable": true,
   "workbench.colorCustomizations": {
-    "statusBar.background": "#5f00af",
-    "statusBar.noFolderBackground": "#5f00af",
-    "statusBar.debuggingBackground": "#5f00af"
+    "statusBar.background": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f",
+    "statusBar.debuggingBackground": "#005f5f"
   },
   "vim.easymotionMarkerForegroundColorTwoChar": "#fdb32b",
   "vim.easymotionKeys": "fjdksweoavn",

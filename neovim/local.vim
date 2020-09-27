@@ -26,6 +26,12 @@ nnoremap <silent> gn :<C-u>tabNext<CR>
 nnoremap <silent> <C-q> :<C-u>:quit!<CR>
 inoremap <silent> <C-q> <Esc>:<C-u>:quit!<CR>
 
+" disable the arrow buttons
+noremap <UP> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 " }}}
 
 " Markdown {{{
