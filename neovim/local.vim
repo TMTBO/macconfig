@@ -1,5 +1,6 @@
 set relativenumber
 set number
+set clipboard+=unnamed
 
 " configs {{{
 
@@ -366,7 +367,8 @@ let g:coc_global_extensions = [
         \ 'coc-yaml',
         \ 'coc-yank',
 	\ 'coc-git',
-        \ 'coc-vimlsp']
+        \ 'coc-vimlsp',
+        \ 'coc-sh']
 
 " }}}
 
