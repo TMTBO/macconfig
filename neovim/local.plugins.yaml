@@ -41,3 +41,8 @@
   rev: release
 
 - repo: tpope/vim-surround
+- repo: iamcco/markdown-preview.nvim
+  on_ft: ['markdown', 'pandoc.markdown', 'rmd']
+  build: 'sh -c "cd app && yarn install"'
+
+- repo: junegunn/vim-peekaboo
