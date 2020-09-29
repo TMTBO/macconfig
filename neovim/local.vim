@@ -13,7 +13,7 @@ let g:python3_host_prog='/usr/local/bin/python3'
 
 " Save & quit {{{
 
-noremap <silent>Q :q<CR>
+" noremap <silent>Q :q<CR>
 noremap <silent><C-q> :qa<CR>
 noremap <silent>S :w<CR
 
