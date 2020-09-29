@@ -8,7 +8,7 @@
 # LSP
 # - { repo: ryanolsonx/vim-lsp-swift, on_ft: Swift }
 # - repo: prabirshrestha/async.vim
-# - repo: prabirshrestha/vim-lsp
+- repo: prabirshrestha/vim-lsp
 
 # Easymotion Plugs
 - repo: easymotion/vim-easymotion
@@ -31,8 +31,8 @@
   on_ft: [C, C++, Objective-C, Objective-C++, Swift]
 
 - repo: mhinz/vim-startify
-# - repo: vim-airline/vim-airline
-# - repo: vim-airline/vim-airline-themes
+- repo: vim-airline/vim-airline
+- repo: vim-airline/vim-airline-themes
 
 - repo: preservim/tagbar
 # coc
