@@ -409,3 +409,10 @@ let g:coc_global_extensions = [
 " let g:auto_save_silent = 1
 
 " }}}
+
+" startify {{{
+
+let g:startify_custom_header =
+          \ 'startify#center(startify#fortune#cowsay())'
+
+" }}}
