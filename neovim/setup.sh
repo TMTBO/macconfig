@@ -25,5 +25,12 @@ npm -g install raml-cop markdownlint-cli write-good
 # Python based linters
 pip install --user pycodestyle pyflakes flake8 vim-vint proselint yamllint
 
+# setup tmux
+if [[ ! -e ~/.tmux ]]; then
+	git clone https://github.com/gpakosz/.tmux.git ~/.tmux
+fi
+
+ln -s -f .tmux/.tmux.conf ~/.tmux.conf
+ln -s ~/.macbootstrap/neovim/tmux.conf.local ~/.tmux.conf.local
 
 echo "Setup Neovim Finished!"
