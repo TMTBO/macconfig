@@ -1,6 +1,9 @@
 set ignorecase
 set wrapscan
-"set guioptions=r
+set guioptions=r
 set startofline
 
 " Key mappings
+nnoremap <C-w><C-s> :xcmenucmd Editor<CR>
+nnoremap <C-w><C-v> :xcmenucmd Editor Below<CR>
+nnoremap <C-w><C-c> :xcmenucmd Close Editor<CR>
