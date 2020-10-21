@@ -2,8 +2,21 @@ set ignorecase
 set wrapscan
 set guioptions=r
 set startofline
+set clipboard=unnamed
 
 " Key mappings
-nnoremap <C-w><C-s> :xcmenucmd Editor<CR>
+nnoremap <C-w><C-s> :xcmenucmd Editor<CR> :xcmenucmd Move Focus to Next Editor<CR>
 nnoremap <C-w><C-v> :xcmenucmd Editor Below<CR>
-nnoremap <C-w><C-c> :xcmenucmd Close Editor<CR>
+nnoremap <C-w><C-c> :xcmenucmd Close Editor<CR> :xcmenucmd Move Focus to Editor<CR>
+nnoremap gb <C-t>
+nnoremap gf :xcmenucmd Go Forward<CR>
+nnoremap gh :xcmenucmd Show Quick Help for Selected Item<CR>
+
+nmap go :xcmenucmd Open Quickly...<CR>
+
+inoremap <C-h> <C-o>h
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
+inoremap <C-l> <C-o>l
+
+source '$HOME/.config/nvim/vimrc'
