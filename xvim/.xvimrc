@@ -19,4 +19,4 @@ inoremap <C-j> <C-o>j
 inoremap <C-k> <C-o>k
 inoremap <C-l> <C-o>l
 
-source '$HOME/.config/nvim/vimrc'
+" source '$HOME/.config/nvim/vimrc'
