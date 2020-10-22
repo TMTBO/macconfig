@@ -28,7 +28,12 @@ pip install --user pycodestyle pyflakes flake8 vim-vint proselint yamllint
 # setup tmux
 if [[ ! -e ~/.tmux ]]; then
 	git clone https://github.com/gpakosz/.tmux.git ~/.tmux
+	chmod 755 ~/.tmux
 fi
+if [[ ! -e ~/.tmux/plugins/tpm ]]; then
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
 
 ln -s -f .tmux/.tmux.conf ~/.tmux.conf
 ln -s ~/.macbootstrap/neovim/tmux.conf.local ~/.tmux.conf.local
