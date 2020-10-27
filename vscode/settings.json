@@ -283,5 +283,17 @@
   "python.pythonPath": "/usr/local/opt/python@3.8/bin/python3.8",
   "java.semanticHighlighting.enabled": true,
   "python.languageServer": "Microsoft",
-  "dart.checkForSdkUpdates": false
+  "dart.checkForSdkUpdates": false,
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [
+      80
+    ],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false
+  }
 }
