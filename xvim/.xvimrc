@@ -3,6 +3,7 @@ set wrapscan
 set guioptions=r
 set startofline
 set clipboard=unnamed
+set relativenumber
 
 " Key mappings
 nnoremap <C-w><C-s> :xcmenucmd Editor<CR> :xcmenucmd Move Focus to Next Editor<CR>
@@ -11,6 +12,7 @@ nnoremap <C-w><C-c> :xcmenucmd Close Editor<CR> :xcmenucmd Move Focus to Editor<
 nnoremap gb <C-t>
 nnoremap gf :xcmenucmd Go Forward<CR>
 nnoremap gh :xcmenucmd Show Quick Help for Selected Item<CR>
+noremap gcc :xcmenucmd Comment Selection<CR>
 
 nmap go :xcmenucmd Open Quickly...<CR>
 
