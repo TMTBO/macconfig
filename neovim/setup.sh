@@ -22,8 +22,17 @@ nvim -c checkhealth
 npm -g install jshint jsxhint jsonlint stylelint sass-lint
 npm -g install raml-cop markdownlint-cli write-good
 
+# coc bash
+npm i -g bash-language-server
+
+# for neovim config
+brew install shellcheck jsonlint yamllint tflint ansible-lint
+brew install tidy-html5 proselint write-good
+yarn global add eslint jshint jsxhint stylelint sass-lint
+yarn global add markdownlint-cli raml-cop
+
 # Python based linters
-pip install --user pycodestyle pyflakes flake8 vim-vint proselint yamllint
+pip3 install --user pycodestyle pyflakes flake8 vim-vint proselint yamllint
 
 # setup tmux
 if [[ ! -e ~/.tmux ]]; then

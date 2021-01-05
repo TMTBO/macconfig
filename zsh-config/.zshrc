@@ -96,3 +96,8 @@ export LC_ALL=en_US.UTF-8
 fpath=(~/.macbootstrap/zsh-config $fpath)
 #fpath=(/usr/local/share/zsh-completions $fpath)
 
+export PATH="/usr/local/opt/bison/bin:$PATH"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"

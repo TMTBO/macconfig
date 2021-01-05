@@ -7,7 +7,8 @@
     "json",
     "python",
     "vue",
-    "swift"
+    "swift",
+    "sh"
   ],
   "suggest.noselect": true,
   "suggest.enablePreselect": false,
