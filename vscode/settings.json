@@ -262,9 +262,9 @@
   "vim.statusBarColorControl": true,
   "vim.vimrc.enable": true,
   "workbench.colorCustomizations": {
-    "statusBar.background": "#005f5f",
-    "statusBar.noFolderBackground": "#005f5f",
-    "statusBar.debuggingBackground": "#005f5f"
+    "statusBar.background": "#5f0000",
+    "statusBar.noFolderBackground": "#5f0000",
+    "statusBar.debuggingBackground": "#5f0000"
   },
   "vim.easymotionMarkerForegroundColorTwoChar": "#fdb32b",
   "vim.easymotionKeys": "fjdksweoavn",
@@ -295,5 +295,6 @@
     "editor.suggestSelection": "first",
     "editor.tabCompletion": "onlySnippets",
     "editor.wordBasedSuggestions": false
-  }
+  },
+  "editor.accessibilitySupport": "on"
 }

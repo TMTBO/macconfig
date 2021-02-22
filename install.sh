@@ -15,7 +15,7 @@ brew install python3 mas
 #fi
 
 if [[ ! -e /Applications/iTerm.app ]]; then
-    brew cask install iterm2
+    brew install iterm2
     defaults delete com.googlecode.iterm2
     cp config/com.googlecode.iterm2.plist $HOME/Library/Preferences
     # config background image location
@@ -27,19 +27,19 @@ else
 fi
 
 #if [[ ! -e /Applications/SourceTree.app ]]; then
-#    brew cask install sourcetree
+#    brew install sourcetree
 #else
 #    echo "You have installed SourceTree"
 #fi
 
 if [[ ! -e /Applications/WeChat.app ]]; then
-    brew cask install wechat
+    brew install wechat
 else
     echo "You have installed WeChat"
 fi
 
 if [[ ! -e /Applications/Google\ Chrome.app ]]; then
-    brew cask install google-chrome
+    brew install google-chrome
 
     # Set Chrome as default browser
     git clone https://github.com/kerma/defaultbrowser ./tools/defaultbrowser
@@ -50,39 +50,39 @@ else
 fi
 
 if [[ ! -e /Applications/Visual\ Studio\ Code.app ]]; then
-    brew cask install visual-studio-code
+    brew install visual-studio-code
     sh ./vscode/setup.sh
 else
     echo "You have installed vscode"
 fi
 
 if [[ ! -e /Applications/ShadowsocksX-NG.app ]]; then
-    brew cask install ShadowsocksX-NG
+    brew install ShadowsocksX-NG
 else
     echo "You have installed ShadowsocksX-NG"
 fi
 
 if [[ ! -e /Applications/HyperSwitch.app ]]; then
-    brew cask install HyperSwitch
+    brew install HyperSwitch
 else
     echo "You have installed HyperSwitch"
 fi
 
 if [[ ! -e /Applications/Postman.app ]]; then
-    brew cask install Postman
+    brew install Postman
 else
     echo "You have installed Postman"
 fi
 
 if [[ ! -e /Applications/Go2Shell.app ]]; then
-    brew cask install Go2Shell
+    brew install Go2Shell
 else
     echo "You have installed Go2Shell"
 fi
 
 
 if [[ ! -e /Applications/DB\ Browser\ for\ SQLite.app ]]; then
-    brew cask install db-browser-for-sqlite
+    brew install db-browser-for-sqlite
 else
     echo "You have installed DB Browser for SQLite"
 fi
@@ -101,7 +101,13 @@ else
     echo "You have installed coreutils"
 fi
 
-brew cask install baiduinput
+if [[ ! -e /Applications/QQMusic.app ]]; then
+    brew install qqmusic
+else
+    echo "You have installed WeChat"
+fi
+
+brew install baiduinput
 open /usr/local/Caskroom/baiduinput/latest/安装百度输入法.app
 
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
