@@ -296,5 +296,5 @@
     "editor.tabCompletion": "onlySnippets",
     "editor.wordBasedSuggestions": false
   },
-  "editor.accessibilitySupport": "on"
+  "editor.accessibilitySupport": "off"
 }

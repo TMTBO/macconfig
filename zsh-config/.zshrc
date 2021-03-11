@@ -35,8 +35,14 @@ ZSH_AUTOSUGGEST_STRATEGY="match_prev_cmd"
 BS_ZSH_BASE="$HOME/.macbootstrap"
 BS_ZSH_TOOLS=${BS_ZSH_BASE}/tools
 
+# for homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 source $BS_ZSH_BASE/zsh-config/common.sh
-source /usr/local/etc/profile.d/autojump.sh
+
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+
 if brew ls --versions scmpuff > /dev/null; then
     eval "$(scmpuff init -s --aliases=false)"
 fi
@@ -53,9 +59,11 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # for nvm
 export NVM_DIR=~/.nvm
 export EDITOR="nvim"
-export NVM_SH="/usr/local/opt/nvm/nvm.sh"
+# export NVM_SH="/usr/local/opt/nvm/nvm.sh"
+[ -s "/usrlocal/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
 # https://github.com/creationix/nvm/issues/860
-declare -a NODE_GLOBALS=(`find $NVM_DIR/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
+# declare -a NODE_GLOBALS=(`find $NVM_DIR/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
 
 NODE_GLOBALS+=("node")
 NODE_GLOBALS+=("nvm")
@@ -94,10 +102,12 @@ export PATH="$PATH:$HOME/Developer/depot_tools"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export LC_ALL=en_US.UTF-8
 fpath=(~/.macbootstrap/zsh-config $fpath)
-#fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 export PATH="/usr/local/opt/bison/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+fpath=(~/.macbootstrap/zsh-config $fpath)
+

@@ -35,6 +35,8 @@ yarn global add markdownlint-cli raml-cop
 pip3 install --user pycodestyle pyflakes flake8 vim-vint proselint yamllint
 
 # setup tmux
+
+brew install tmux
 if [[ ! -e ~/.tmux ]]; then
 	git clone https://github.com/gpakosz/.tmux.git ~/.tmux
 	chmod 755 ~/.tmux
