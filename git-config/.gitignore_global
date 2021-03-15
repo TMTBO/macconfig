@@ -1,0 +1,19 @@
+*~
+.DS_Store
+._*
+
+# ccls
+.ccls-cache
+
+# AppCode
+.idea
+
+# Pods
+Pods/
+
+# Xcode
+xcuserdata/
+xcsharedata/
+*.xcscmblueprint
+*.xcworkspacedata
+

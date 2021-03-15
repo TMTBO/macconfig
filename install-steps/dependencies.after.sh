@@ -75,6 +75,7 @@ sudo gem update --system 2.7.6
 sudo gem install -n /usr/local/bin cocoapods
 sudo gem install -n /usr/local/bin cocoapods-plugins
 sudo gem install colored
+arch x86_64 sudo gem install ffi
 
 # nvm & npm install
 if [[ ! -d $HOME/.nvm ]]; then
