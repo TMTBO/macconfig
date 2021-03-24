@@ -32,7 +32,6 @@ alias gba='git branch -a'
 alias gt='git tag'
 alias gtd='git tag -d'
 alias gcf='git checkout $(gb | fzf)'
-alias gcrf='git checkout $(gbr | fzf | awk -F \\"/\\" \\"{print $NF}\\")'
 
 # zsh
 alias cpu='sysctl -n machdep.cpu.brand_string'

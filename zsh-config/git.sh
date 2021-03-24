@@ -39,6 +39,10 @@ alias cdsubmodule='GIT_ROOT=$(git rev-parse --show-toplevel 2>/dev/null) && [[ -
 alias whyignore='git check-ignore -v'
 alias reignore='git rm -r --cached . && git add .'
 
+function gcrf() {
+  git checkout $(gbr | fzf | awk -F '/' '{print $NF}')
+}
+
 function gdt() {
     params="$@"
     if brew ls --versions scmpuff > /dev/null; then

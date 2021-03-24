@@ -21,7 +21,8 @@
       "action": "keyPress",
       "keycode": 122,
       "width": 60,
-      "align": "left"
+      "align": "left",
+      "hapticFeedback": true
     },
     
     {
@@ -294,7 +295,7 @@
                 "longActionAppleScript":{
                   "inline":"display dialog (current date) as string"
                 },
-                "width":115
+                "width":320
             },
             {
                 "type": "battery",
