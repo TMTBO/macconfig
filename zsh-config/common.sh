@@ -5,7 +5,6 @@ source $BS_ZSH_BASE/zsh-config/find.sh
 source $BS_ZSH_BASE/zsh-config/git.sh
 source $BS_ZSH_BASE/zsh-config/grep.sh
 source $BS_ZSH_BASE/zsh-config/misc.sh
-source $BS_ZSH_BASE/zsh-config/tools.sh
 source $BS_ZSH_BASE/zsh-config/alias.sh
 source $BS_ZSH_BASE/zsh-config/fzf.sh
 for f in $BS_ZSH_BASE/zsh-config/functions/*.sh; do source $f; done

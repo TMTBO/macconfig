@@ -7,6 +7,10 @@ brew
 zsh-syntax-highlighting
 zsh-autosuggestions
 wd
+z
+xcode
+web-search
+zsh-vi-mode
 )
 
 ZSH=$HOME/.oh-my-zsh
@@ -34,6 +38,11 @@ ZSH_AUTOSUGGEST_STRATEGY="match_prev_cmd"
 
 BS_ZSH_BASE="$HOME/.macbootstrap"
 BS_ZSH_TOOLS=${BS_ZSH_BASE}/tools
+
+ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM
+ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+ZVM_VISUAL_LINE_MODE_CURSOR=$ZVM_CURSOR_BLOCK
 
 # for homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
