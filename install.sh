@@ -3,7 +3,7 @@ source basic.sh
 
 sudo ./install-steps/macos.sh
 
-brew install python3 mas
+brew install python3 #mas
 # pip3 install shadowsocks
 
 # install and use shadowsocks
@@ -104,11 +104,21 @@ fi
 if [[ ! -e /Applications/QQMusic.app ]]; then
     brew install qqmusic
 else
-    echo "You have installed WeChat"
+    echo "You have installed QQMusic"
 fi
 
-brew install baiduinput
-open /usr/local/Caskroom/baiduinput/latest/安装百度输入法.app
+if [[ ! -e /Applications/CheatSheet.app ]]; then
+    brew install cheatsheet
+else
+    echo "You have installed CheatSheet"
+fi
+
+if [[! -e /Library/Input Methods/BaiduIM.app ]]; then
+    brew install baiduinput
+    open /opt/homebrew/Caskroom/baiduinput/latest/安装百度输入法.app
+else
+    echo "You have installed BaiduIM.app"
+fi
 
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 brew install redis
