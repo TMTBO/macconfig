@@ -18,6 +18,8 @@ noremap gcc :xcmenucmd Comment Selection<CR>
 nmap go :xcmenucmd Open Quickly...<CR>
 nmap gc :xcmenucmd Find Call Hierarchy<CR>
 
+nmap ;sc :xcmenucmd Add Missing Switch Cases<CR>
+
 inoremap <C-h> <C-o>h
 inoremap <C-j> <C-o>j
 inoremap <C-k> <C-o>k
