@@ -54,6 +54,7 @@ alias -g NE="2> /dev/null"
 alias -g NUL="> /dev/null 2>&1"
 alias zf='z $(z -l | fzf)'
 
+alias apllint='arch -x86_64 pod lib lint --sources=http://gitlab.lizhi.fm/iOSPods/LizhiSpecs.git --use-libraries --fail-fast --verbose --allow-warnings --skip-import-validation'
 alias pllint='pod lib lint --sources=http://gitlab.lizhi.fm/iOSPods/LizhiSpecs.git --use-libraries'
 alias pllintd='pod lib lint --sources=http://gitlab.lizhi.fm/iOSPods/LizhiSpecs.git'
 alias pslint='pod spec lint --sources=http://gitlab.lizhi.fm/iOSPods/LizhiSpecs.git --use-libraries'
