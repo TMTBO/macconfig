@@ -4,6 +4,7 @@ set guioptions=r
 set startofline
 set clipboard=unnamed
 set relativenumber
+set spell spelllang=en_us
 
 " Key mappings
 nnoremap <C-w>h :xcmenucmd Editor<CR>
@@ -35,4 +36,55 @@ noremap <Right> <NOP>
 
 " inoremap ;; <Space>=<Space>
 
-" source '$HOME/.config/nvim/vimrc'
+" vim-surround
+
+nmap ( <NOP>
+nmap ) <NOP>
+nmap [ <NOP>
+nmap ] <NOP>
+nmap { <NOP>
+nmap } <NOP>
+
+nmap cs"' F"s'<ESC>f"s'<ESC>
+nmap cs"` F"s`<ESC>f"s`<ESC>
+nmap cs'" F's"<ESC>f's"<ESC>
+nmap cs'` F's`<ESC>f's`<ESC>
+nmap cs([ F(s[<ESC>f)s]<ESC>
+nmap cs({ F(s{<ESC>f)s}<ESC>
+nmap cs[( F[s(<ESC>f]s)<ESC>
+nmap cs[{ F[s{<ESC>f]s}<ESC>
+nmap cs{( F{s(<ESC>f}s)<ESC>
+nmap cs{[ F{s[<ESC>f}s]<ESC>
+
+nmap ds" F"x<ESC>f"x<ESC>
+nmap ds' F'x<ESC>f'x<ESC>
+nmap ds` F`x<ESC>f`x<ESC>
+nmap ds( F(x<ESC>f)x<ESC>
+nmap ds[ F[x<ESC>f]x<ESC>
+nmap ds{ F{x<ESC>f}x<ESC>
+nmap ds) ds(
+nmap ds] ds[
+nmap ds} ds{
+
+nmap ys" bi"<ESC>ea"<ESC>
+nmap ys' bi'<ESC>ea'<ESC>
+nmap ys` bi`<ESC>ea`<ESC>
+nmap ys( bi(<ESC>ea)<ESC>
+nmap ys[ bi[<ESC>ea]<ESC>
+nmap ys{ bi{<ESC>ea}<ESC>
+nmap ys) ys(
+nmap ys] ys[
+nmap ys} ys{
+
+nmap yS" bi" <ESC>ea "<ESC>
+nmap yS' bi' <ESC>ea '<ESC>
+nmap yS` bi` <ESC>ea `<ESC>
+nmap yS( bi( <ESC>ea )<ESC>
+nmap yS[ bi[ <ESC>ea ]<ESC>
+nmap yS{ bi{ <ESC>ea }<ESC>
+nmap yS) yS(
+nmap yS] yS[
+nmap yS} yS{
+
+" vim:set ft=vim sw=2 sts=2 et:
+
