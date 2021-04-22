@@ -45,7 +45,7 @@ nmap ] <NOP>
 nmap { <NOP>
 nmap } <NOP>
 
-nmap cs"' F"s'<ESC>f"s'<ESC>
+nmap cs"' "zdi"vhs''<ESC>h"zp<ESC>
 nmap cs"` F"s`<ESC>f"s`<ESC>
 nmap cs'" F's"<ESC>f's"<ESC>
 nmap cs'` F's`<ESC>f's`<ESC>
@@ -56,25 +56,29 @@ nmap cs[{ F[s{<ESC>f]s}<ESC>
 nmap cs{( F{s(<ESC>f}s)<ESC>
 nmap cs{[ F{s[<ESC>f}s]<ESC>
 
-nmap ds" F"x<ESC>f"x<ESC>
-nmap ds' F'x<ESC>f'x<ESC>
-nmap ds` F`x<ESC>f`x<ESC>
-nmap ds( F(x<ESC>f)x<ESC>
-nmap ds[ F[x<ESC>f]x<ESC>
-nmap ds{ F{x<ESC>f}x<ESC>
+nmap ds" "zdi"h2xh"zp
+nmap ds' "zdi'h2xh"zp
+nmap ds` "zdi`h2xh"zp
+nmap ds( "zdi(h2xh"zp
+nmap ds[ "zdi[h2xh"zp
+nmap ds{ "zdi{h2xh"zp
+nmap ds< "zdi<h2xh"zp
 nmap ds) ds(
 nmap ds] ds[
 nmap ds} ds{
+nmap ds> ds<
 
-nmap ys" bi"<ESC>ea"<ESC>
-nmap ys' bi'<ESC>ea'<ESC>
-nmap ys` bi`<ESC>ea`<ESC>
-nmap ys( bi(<ESC>ea)<ESC>
-nmap ys[ bi[<ESC>ea]<ESC>
-nmap ys{ bi{<ESC>ea}<ESC>
+nmap ys" "zdiwi""<ESC>h"zp
+nmap ys' "zdiwi''<ESC>h"zp
+nmap ys` "zdiwi``<ESC>h"zp
+nmap ys( "zdiwi()<ESC>h"zp
+nmap ys[ "zdiwi[]<ESC>h"zp
+nmap ys{ "zdiwi{}<ESC>h"zp
+nmap ys< "zdiwi<><ESC>h"zp
 nmap ys) ys(
 nmap ys] ys[
 nmap ys} ys{
+nmap ys> ys<
 
 nmap yS" bi" <ESC>ea "<ESC>
 nmap yS' bi' <ESC>ea '<ESC>
@@ -82,9 +86,11 @@ nmap yS` bi` <ESC>ea `<ESC>
 nmap yS( bi( <ESC>ea )<ESC>
 nmap yS[ bi[ <ESC>ea ]<ESC>
 nmap yS{ bi{ <ESC>ea }<ESC>
+nmap yS< bi< <ESC>ea ><ESC>
 nmap yS) yS(
 nmap yS] yS[
 nmap yS} yS{
+nmap yS> yS<
 
 " vim:set ft=vim sw=2 sts=2 et:
 
