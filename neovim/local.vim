@@ -116,9 +116,51 @@ autocmd FileType swift setlocal omnifunc=lsp#complete
 
 if executable('sourcekit-lsp')
     au User lsp_setup call lsp#register_server({
-        \ 'name': 'sourcekit-lsp',
-        \ 'cmd': {server_info->['sourcekit-lsp']},
-        \ 'whitelist': ['swift'],
+       \ 'name': 'sourcekit-lsp',
+       \ 'cmd': {server_info->['sourcekit-lsp']},
+       \ 'whitelist': ['swift'],
+       \ })
+endif
+
+if executable('clangd')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd', '-background-index']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ })
+endif
+
+if executable('bash-language-server')
+  augroup LspBash
+    autocmd!
+    autocmd User lsp_setup call lsp#register_server({
+          \ 'name': 'bash-language-server',
+          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'bash-language-server start']},
+          \ 'allowlist': ['sh'],
+          \ })
+  augroup END
+endif
+
+if executable('vim-language-server')
+  augroup LspVim
+    autocmd!
+    autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'vim-language-server',
+        \ 'cmd': {server_info->['vim-language-server', '--stdio']},
+        \ 'whitelist': ['vim'],
+        \ 'initialization_options': {
+        \   'vimruntime': $VIMRUNTIME,
+        \   'runtimepath': &rtp,
+        \ }})
+  augroup END
+endif
+
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ 'workspace_config': {'pyls': {'plugins': {'pydocstyle': {'enabled': v:true}}}}
         \ })
 endif
 
@@ -131,19 +173,19 @@ let g:lsp_log_file = ""
 let g:lsp_diagnostics_enabled = 1
 
 function! s:on_lsp_buffer_enabled() abort
-    setlocal omnifunc=lsp#complete
+    " setlocal omnifunc=lsp#complete
     setlocal signcolumn=yes
-    nmap <buffer> lgd <plug>(lsp-definition)
-    nmap <buffer> lgi <plug>(lsp-implementation)
-    nmap <buffer> lpd <plug>(lsp-peek-definition)
-    nmap <buffer> lca <plug>(lsp-code-action)
-    nmap <buffer> lrn <plug>(lsp-rename)
-    nmap <buffer> lnd <plug>(lsp-next-diagnostic)
-    nmap <buffer> lpd <plug>(lsp-previous-diagnostic)
-    nmap <buffer> lr <plug>(lsp-references)
-    nmap <buffer> lpr <plug>(lsp-previous-reference)
-    nmap <buffer> lnr <plug>(lsp-next-reference)
-    nmap <buffer> lspstatus <plug>(lsp-status)
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> pd <plug>(lsp-peek-definition)
+    nmap <buffer> ca <plug>(lsp-code-action)
+    nmap <buffer> rn <plug>(lsp-rename)
+    nmap <buffer> nd <plug>(lsp-next-diagnostic)
+    nmap <buffer> pd <plug>(lsp-previous-diagnostic)
+    nmap <buffer> r <plug>(lsp-references)
+    nmap <buffer> pr <plug>(lsp-previous-reference)
+    nmap <buffer> nr <plug>(lsp-next-reference)
+    nmap <buffer> spstatus <plug>(lsp-status)
     " refer to doc to add more commands
 
 endfunction
@@ -257,14 +299,14 @@ endif
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
 
 " Use <LEADER>h to show documentation in preview window.
 nnoremap <silent> <leader>h :call <SID>show_documentation()<CR>
@@ -447,5 +489,37 @@ let g:startify_lists = [
 
 let g:startify_custom_header =
           \ 'startify#center(startify#fortune#cowsay())'
+
+" }}}
+
+" gutentags {{{
+" gutentags 搜索工程目录的标志，当前文件路径向上递归直到碰到这些文件/目录名
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project', '.xcworkspace', '.xcodeproj']
+
+" 所生成的数据文件的名称
+let g:gutentags_ctags_tagfile = '.tags'
+
+" 同时开启 ctags 和 gtags 支持：
+let g:gutentags_modules = []
+if executable('ctags')
+	let g:gutentags_modules += ['ctags']
+endif
+if executable('gtags-cscope') && executable('gtags')
+	let g:gutentags_modules += ['gtags_cscope']
+endif
+
+" 将自动生成的 ctags/gtags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
+let g:gutentags_cache_dir = expand('~/.cache/tags')
+
+" 配置 ctags 的参数，老的 Exuberant-ctags 不能有 --extra=+q，注意
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+
+" 如果使用 universal ctags 需要增加下面一行，老的 Exuberant-ctags 不能加下一行
+let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
+
+" 禁用 gutentags 自动加载 gtags 数据库的行为
+let g:gutentags_auto_add_gtags_cscope = 0
 
 " }}}

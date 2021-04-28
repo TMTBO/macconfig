@@ -86,7 +86,7 @@ for cmd in "${NODE_GLOBALS[@]}"; do
 done
 
 # Bind key
-bindkey ';' autosuggest-execute
+bindkey 'C-;' autosuggest-execute
 
 #archey -o
 autoload -U bashcompinit
@@ -94,11 +94,15 @@ bashcompinit
 
 # Homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 # Ruby
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 # Flutter
 # export PATH="$PATH:$HOME/Developer/Flutter/flutter/bin"
 # export ENABLE_FLUTTER_DESKTOP=true
+
+# LLVM
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
@@ -119,4 +123,3 @@ export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 fpath=(~/.macbootstrap/zsh-config $fpath)
-

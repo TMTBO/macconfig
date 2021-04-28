@@ -184,14 +184,6 @@ backup_file ~/.config/nvim/
 #     flutter doctor
 # fi
 
-# install sourcekit-lsp
-# if [[ ! -e ~/Developer/sourcekit-lsp ]]; then
-#     git clone https://github.com/apple/sourcekit-lsp.git ~/Developer/sourcekit-lsp
-#     swift package update
-#     swift build
-#     ln -s ~/Developer/sourcekit-lsp/.build/debug/sourcekit-lsp /usr/local/bin/sourcekit-lsp
-# fi
-
 # ESLint configuration
 # backup_file ~/.eslintrc.js
 # backup_file ~/.eslintrc

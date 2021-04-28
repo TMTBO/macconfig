@@ -9,6 +9,7 @@
 # - { repo: ryanolsonx/vim-lsp-swift, on_ft: Swift }
 # - repo: prabirshrestha/async.vim
 - repo: prabirshrestha/vim-lsp
+- repo: piec/vim-lsp-clangd
 
 # Easymotion Plugs
 - repo: easymotion/vim-easymotion

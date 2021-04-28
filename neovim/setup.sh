@@ -25,8 +25,10 @@ nvim -c checkhealth
 npm -g install jshint jsxhint jsonlint stylelint sass-lint
 npm -g install raml-cop markdownlint-cli write-good
 
-# coc bash
+# lsp
 npm i -g bash-language-server
+npm install -g vim-language-server
+pip install python-language-server
 
 # for neovim config
 brew install shellcheck jsonlint yamllint tflint ansible-lint
