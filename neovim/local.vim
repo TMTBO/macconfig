@@ -78,7 +78,7 @@ let g:operator#surround#blocks = {
 " Open Tagbar {{{
 
 " autocmd VimEnter * TagbarToggle
-nmap <F8> :TagbarToggle<CR>
+nmap gt:TagbarToggle<CR>
 
 " }}}
 
@@ -101,7 +101,7 @@ augroup END
 " }}}
 
 " Terminal {{{
-nmap ;t :bo sp term://zsh\|resize 10<CR>i
+nmap ;t :bo sp term://zsh\|resize 15<CR>i
 tnoremap <Esc> <C-\><C-n>
 
 " }}}
@@ -116,58 +116,58 @@ autocmd FileType swift setlocal omnifunc=lsp#complete
 
 if executable('sourcekit-lsp')
     au User lsp_setup call lsp#register_server({
-       \ 'name': 'sourcekit-lsp',
-       \ 'cmd': {server_info->['sourcekit-lsp']},
-       \ 'whitelist': ['swift'],
-       \ })
+      \ 'name': 'sourcekit-lsp',
+      \ 'cmd': {server_info->['sourcekit-lsp']},
+      \ 'whitelist': ['swift'],
+      \ })
 endif
-
-if executable('clangd')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'clangd',
-        \ 'cmd': {server_info->['clangd', '-background-index']},
-        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-        \ })
-endif
-
-if executable('bash-language-server')
-  augroup LspBash
-    autocmd!
-    autocmd User lsp_setup call lsp#register_server({
-          \ 'name': 'bash-language-server',
-          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'bash-language-server start']},
-          \ 'allowlist': ['sh'],
-          \ })
-  augroup END
-endif
-
-if executable('vim-language-server')
-  augroup LspVim
-    autocmd!
-    autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'vim-language-server',
-        \ 'cmd': {server_info->['vim-language-server', '--stdio']},
-        \ 'whitelist': ['vim'],
-        \ 'initialization_options': {
-        \   'vimruntime': $VIMRUNTIME,
-        \   'runtimepath': &rtp,
-        \ }})
-  augroup END
-endif
-
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ 'workspace_config': {'pyls': {'plugins': {'pydocstyle': {'enabled': v:true}}}}
-        \ })
-endif
-
-" }}}
-
-" vim-lsp {{{
-
+" 
+" if executable('clangd')
+"     au User lsp_setup call lsp#register_server({
+"        \ 'name': 'clangd',
+"        \ 'cmd': {server_info->['clangd', '-background-index']},
+"        \ 'whitelist': ['h', 'c', 'cpp', 'objc', 'objcpp'],
+"        \ })
+" endif
+" 
+" if executable('bash-language-server')
+"   augroup LspBash
+"     autocmd!
+"     autocmd User lsp_setup call lsp#register_server({
+"          \ 'name': 'bash-language-server',
+"          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'bash-language-server start']},
+"          \ 'allowlist': ['sh'],
+"          \ })
+"   augroup END
+" endif
+" 
+" if executable('vim-language-server')
+"   augroup LspVim
+"     autocmd!
+"     autocmd User lsp_setup call lsp#register_server({
+"        \ 'name': 'vim-language-server',
+"        \ 'cmd': {server_info->['vim-language-server', '--stdio']},
+"        \ 'whitelist': ['vim'],
+"        \ 'initialization_options': {
+"        \   'vimruntime': $VIMRUNTIME,
+"        \   'runtimepath': &rtp,
+"        \ }})
+"   augroup END
+" endif
+" 
+" if executable('pyls')
+"     au User lsp_setup call lsp#register_server({
+"        \ 'name': 'pyls',
+"        \ 'cmd': {server_info->['pyls']},
+"        \ 'whitelist': ['python'],
+"        \ 'workspace_config': {'pyls': {'plugins': {'pydocstyle': {'enabled': v:true}}}}
+"        \ })
+" endif
+" 
+" " }}}
+" 
+" " vim-lsp {{{
+" 
 let g:lsp_log_verbose = 0
 let g:lsp_log_file = ""
 let g:lsp_diagnostics_enabled = 1
@@ -299,22 +299,24 @@ endif
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-" nmap <silent> [g <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Use <LEADER>h to show documentation in preview window.
-nnoremap <silent> <leader>h :call <SID>show_documentation()<CR>
+nnoremap <silent> gh :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
-  else
+  elseif (coc#rpc#ready())
     call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
 
@@ -322,23 +324,34 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>e <Plug>(coc-rename)
+nmap grn <Plug>(coc-rename)
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
 
 set updatetime=100
 set shortmess+=c
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-" if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-"   set signcolumn=number
-"  else
-"   set signcolumn=yes
-" endif
+if has("patch-8.1.1564")
+  Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+ else
+  set signcolumn=yes
+endif
 
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " }}}
 
@@ -425,39 +438,39 @@ let g:coc_global_extensions = [
 
 " GitGutter {{{
 
-" let g:gitgutter_signs = 0
-" let g:gitgutter_sign_allow_clobber = 0
-" let g:gitgutter_map_keys = 0
-" let g:gitgutter_override_sign_column_highlight = 0
-" let g:gitgutter_preview_win_floating = 1
-" let g:gitgutter_sign_added = '▎'
-" let g:gitgutter_sign_modified = '░'
-" let g:gitgutter_sign_removed = '▏'
-" let g:gitgutter_sign_removed_first_line = '▔'
-" let g:gitgutter_sign_modified_removed = '▒'
-" autocmd BufWritePost * GitGutter
-" nnoremap <LEADER>gf :GitGutterFold<CR>
-" nnoremap H :GitGutterPreviewHunk<CR>
-" nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
-" nnoremap <LEADER>g= :GitGutterNextHunk<CR
+let g:gitgutter_signs = 0
+let g:gitgutter_sign_allow_clobber = 0
+let g:gitgutter_map_keys = 0
+let g:gitgutter_override_sign_column_highlight = 0
+let g:gitgutter_preview_win_floating = 1
+let g:gitgutter_sign_added = '▎'
+let g:gitgutter_sign_modified = '░'
+let g:gitgutter_sign_removed = '▏'
+let g:gitgutter_sign_removed_first_line = '▔'
+let g:gitgutter_sign_modified_removed = '▒'
+autocmd BufWritePost * GitGutter
+nnoremap <LEADER>gf :GitGutterFold<CR>
+nnoremap H :GitGutterPreviewHunk<CR>
+nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
+nnoremap <LEADER>g= :GitGutterNextHunk<CR
 
-" highlight GitGutterAdd    guifg=#009900 ctermfg=2
-" highlight GitGutterChange guifg=#bbbb00 ctermfg=3
-" highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
 " }}}
 
 " Agit {{{
 
 " nnoremap <LEADER>gl :Agit<CR>
-" let g:agit_no_default_mappings = 1
+let g:agit_no_default_mappings = 1
 
 " }}}
 
 " auto-save {{
 
-" let g:auto_save = 1 
-" let g:auto_save_silent = 1
+let g:auto_save = 1
+let g:auto_save_silent = 1
 
 " }}}
 
@@ -503,9 +516,6 @@ let g:gutentags_ctags_tagfile = '.tags'
 let g:gutentags_modules = []
 if executable('ctags')
 	let g:gutentags_modules += ['ctags']
-endif
-if executable('gtags-cscope') && executable('gtags')
-	let g:gutentags_modules += ['gtags_cscope']
 endif
 
 " 将自动生成的 ctags/gtags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录

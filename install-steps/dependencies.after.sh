@@ -76,6 +76,7 @@ sudo gem install -n /usr/local/bin cocoapods
 sudo gem install -n /usr/local/bin cocoapods-plugins
 sudo gem install colored
 arch x86_64 sudo gem install ffi
+sudo gem install -n /usr/local/bin xcpretty
 
 # nvm & npm install
 if [[ ! -d $HOME/.nvm ]]; then

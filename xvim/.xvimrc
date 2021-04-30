@@ -46,15 +46,15 @@ nmap { <NOP>
 nmap } <NOP>
 
 nmap cs"' "zdi"vhs''<ESC>h"zp<ESC>
-nmap cs"` F"s`<ESC>f"s`<ESC>
-nmap cs'" F's"<ESC>f's"<ESC>
-nmap cs'` F's`<ESC>f's`<ESC>
-nmap cs([ F(s[<ESC>f)s]<ESC>
-nmap cs({ F(s{<ESC>f)s}<ESC>
-nmap cs[( F[s(<ESC>f]s)<ESC>
-nmap cs[{ F[s{<ESC>f]s}<ESC>
-nmap cs{( F{s(<ESC>f}s)<ESC>
-nmap cs{[ F{s[<ESC>f}s]<ESC>
+nmap cs"` "zdi"vhs``<ESC>h"zp<ESC>
+nmap cs'" "zdi'vhs""<ESC>h"zp<ESC>
+nmap cs'` "zdi'vhs``<ESC>h"zp<ESC>
+nmap cs([ "zdi(vhs[]<ESC>h"zp<ESC>
+nmap cs({ "zdi(vhs{}<ESC>h"zp<ESC>
+nmap cs[( "zdi[vhs()<ESC>h"zp<ESC>
+nmap cs[{ "zdi[vhs{}<ESC>h"zp<ESC>
+nmap cs{( "zdi{vhs()<ESC>h"zp<ESC>
+nmap cs{[ "zdi{vhs[]<ESC>h"zp<ESC>
 
 nmap ds" "zdi"h2xh"zp
 nmap ds' "zdi'h2xh"zp

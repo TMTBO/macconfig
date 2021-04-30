@@ -4,6 +4,8 @@
 
 # ccls
 .ccls-cache
+.cache
+.ccls
 
 # AppCode
 .idea
