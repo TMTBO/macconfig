@@ -19,7 +19,7 @@ if [[ ! -e /Applications/iTerm.app ]]; then
     defaults delete com.googlecode.iterm2
     cp config/com.googlecode.iterm2.plist $HOME/Library/Preferences
     # config background image location
-    # command="set :New\ Bookmarks:0:Background\ Image\ Location /Users/""$(whoami)""/.macbootstrap/assets/iterm-background.jpg"
+    command="set :New\ Bookmarks:0:Background\ Image\ Location /Users/""$(whoami)""/.macbootstrap/assets/iterm-background.jpg"
     /usr/libexec/PlistBuddy -c "$command" $HOME/Library/Preferences/com.googlecode.iterm2.plist
     defaults read -app iTerm >/dev/null
 else
@@ -150,6 +150,7 @@ brew_install zsh-completions
 # brew tap vapor/tap
 # brew install vapor/tap/vapor
 $(brew --prefix)/opt/fzf/install --all
+brew_install xcpretty
 
 # link git config
 mv ~/.gitconfig ~/.gitconfig_backup
@@ -202,7 +203,6 @@ ln -s ~/.macbootstrap/config/ranger/rc.conf "$old_rc_conf"
 
 ./install-steps/dependencies.before.sh
 
-#unset ALL_PROXY
 ./install-steps/dependencies.after.sh
 
 # ssh configuration
@@ -217,6 +217,6 @@ ln -s ~/.macbootstrap/zsh-config/ssh_config ~/.ssh/config
 
 # SPM Shell Completion Scripts
 swift package completion-tool generate-zsh-script > ~/.macbootstrap/zsh-config/_swift
-# echo -e "fpath=(~/.macbootstrap/zsh-config \$fpath)\n" >> ~/.zshrc
+echo -e "fpath=(~/.macbootstrap/zsh-config \$fpath)\n" >> ~/.zshrc
 compinit
 

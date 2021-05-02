@@ -37,26 +37,6 @@ brew install --appdir='/usr/local/bin' qlimagesize qlvideo # Avoid password
 #     rm $HOME/Downloads/Dash.app.zip
 # fi
 
-# Install Alfred
-if [[ -e "/Applications/Alfred 4.app" ]]; then
-    echo "You have installed Alfred"
-else
-    if [[ ! -e "$HOME/Library/Application Support/Alfred 3" ]]; then
-        mkdir -p "$HOME/Library/Application Support/Alfred 3"
-    fi
-
-    # patch alfred
-    brew cask install alfred
-    sudo codesign -f -d -s - "/Applications/Alfred 3.app/Contents/Frameworks/Alfred Framework.framework/Versions/A/Alfred Framework"
-    cp tools/alfred.license.plist "$HOME/Library/Application Support/Alfred 3/license.plist"
-
-    # sync configuration
-    rm -rf "$HOME/Library/Application Support/Alfred 3/Alfred.alfredpreferences"
-    curl http://p2w4johvr.bkt.clouddn.com/Alfred.alfredpreferences2.zip -o "$HOME/Downloads/Alfred.alfredpreferences.zip"
-    unzip -q "$HOME/Downloads/Alfred.alfredpreferences.zip" -d "$HOME/Library/Application Support/Alfred 3"
-    rm "$HOME/Downloads/Alfred.alfredpreferences.zip"
-fi
-
 # Powerline-font
 # ---------------
 # git clone --depth=1 https://github.com/powerline/fonts.git --depth=1
@@ -86,4 +66,23 @@ export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix nvm)/nvm.sh
 export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
 nvm install 13.13.0
+
+# for nvm .zshrc
+echo "export NVM_DIR=~/.nvm" >> ~/.zshrc
+echo "export EDITOR=\"nvim\"" >> ~/.zshrc
+echo "[ -s \"/usrlocal/opt/nvm/nvm.sh\" ] && . \"/usr/local/opt/nvm/nvm.sh\"" >> ~/.zshrc
+echo "[ -s \"/opt/homebrew/opt/nvm/nvm.sh\" ] && . \"/opt/homebrew/opt/nvm/nvm.sh\"" >> ~/.zshrc
+# https://github.com/creationix/nvm/issues/860
+# declare -a NODE_GLOBALS=(`find $NVM_DIR/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
+echo "" >> ~/.zshrc
+echo "NODE_GLOBALS+=(\"node\")" >> ~/.zshrc
+echo "NODE_GLOBALS+=(\"nvm\")" >> ~/.zshrc
+echo "" >> ~/.zshrc
+echo "load_nvm () {" >> ~/.zshrc
+echo "  [ -s \"$NVM_SH\" ] && . \"$NVM_SH\"" >> ~/.zshrc
+echo "}" >> ~/.zshrc
+echo "" >> ~/.zshrc
+echo "for cmd in \"${NODE_GLOBALS[@]}\""; do >> ~/.zshrc
+echo "  eval \"${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }\"" >> ~/.zshrc
+echo "done" >> ~/.zshrc
 

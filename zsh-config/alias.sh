@@ -74,3 +74,7 @@ alias t='tmux'
 alias tc='tmux -CC'
 alias ta='tmux -CC attach'
 alias tw='tmux new-window -n'
+
+# ccls
+alias cj='xcodebuild | xcpretty -r json-compilation-database --output compile_commands.json'
+

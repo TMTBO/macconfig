@@ -58,32 +58,8 @@ fi
 
 eval "$(scmpuff init -s)"
 
-fpath=(/usr/local/share/zsh-completions $fpath)
-
-# GO
-#export GOPATH=$HOME/go
-#export GOBIN=$GOPATH/bin
-#export PATH=$PATH:$GOBIN
-
-# for nvm
-export NVM_DIR=~/.nvm
-export EDITOR="nvim"
-# export NVM_SH="/usr/local/opt/nvm/nvm.sh"
-[ -s "/usrlocal/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
-# https://github.com/creationix/nvm/issues/860
-# declare -a NODE_GLOBALS=(`find $NVM_DIR/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
-
-NODE_GLOBALS+=("node")
-NODE_GLOBALS+=("nvm")
-
-load_nvm () {
-  [ -s "$NVM_SH" ] && . "$NVM_SH"
-}
-
-for cmd in "${NODE_GLOBALS[@]}"; do
-  eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
-done
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export LC_ALL=en_US.UTF-8
 
 # Bind key
 bindkey 'C-;' autosuggest-execute
@@ -91,6 +67,11 @@ bindkey 'C-;' autosuggest-execute
 #archey -o
 autoload -U bashcompinit
 bashcompinit
+
+# GO
+#export GOPATH=$HOME/go
+#export GOBIN=$GOPATH/bin
+#export PATH=$PATH:$GOBIN
 
 # Homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
@@ -112,14 +93,8 @@ export PATH="$HOME/.rvm/bin:$PATH"
 # chromium depot_tools path
 export PATH="$PATH:$HOME/Developer/depot_tools"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export LC_ALL=en_US.UTF-8
-fpath=(~/.macbootstrap/zsh-config $fpath)
-fpath=(/usr/local/share/zsh-completions $fpath)
-
 export PATH="/usr/local/opt/bison/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
-fpath=(~/.macbootstrap/zsh-config $fpath)

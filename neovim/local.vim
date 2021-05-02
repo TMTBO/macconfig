@@ -353,6 +353,29 @@ endif
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
+au CursorHold * sil call CocActionAsync('highlight')
+" au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
+
+" bases
+nn <silent> gbase :call CocLocations('ccls','$ccls/inheritance')<cr>
+" derived
+nn <silent> gchlid :call coclocations('ccls','$ccls/inheritance',{'derived':v:true})<cr>
+
+" caller
+nn <silent> gcaller :call CocLocations('ccls','$ccls/call')<cr>
+" callee
+nn <silent> gcall :call CocLocations('ccls','$ccls/call',{'callee':v:true})<cr>
+
+" $ccls/member
+" member variables / variables in a namespace
+nn <silent> gmemb :call CocLocations('ccls','$ccls/member')<cr>
+" member functions / functions in a namespace
+nn <silent> gfunc :call CocLocations('ccls','$ccls/member',{'kind':3})<cr>
+" nested classes / types in a namespace
+nn <silent> gtype :call CocLocations('ccls','$ccls/member',{'kind':2})<cr>
+
+nn <silent> gvar :call CocLocations('ccls','$ccls/vars')<cr>
+nn <silent> gVar :call CocLocations('ccls','$ccls/vars',{'kind':1})<cr>
 " }}}
 
 " airline {{{
