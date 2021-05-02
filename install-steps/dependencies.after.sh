@@ -4,7 +4,7 @@ source basic.sh
 # ---------------
 
 # Extension for preview
-brew install qlcolorcode qlstephen qlmarkdown quicklook-json webpquicklook provisionql quicklookapk betterzip
+brew install qlcolorcode qlstephen qlmarkdown quicklook-json webpquicklook provisionql quicklookapk
 brew install --appdir='/usr/local/bin' qlimagesize qlvideo # Avoid password
 
 # Zip tool
@@ -12,30 +12,6 @@ brew install --appdir='/usr/local/bin' qlimagesize qlvideo # Avoid password
 
 # Install applications
 # ---------------
-
-# Install Charles
-# if [[ -e /Applications/Charles.app ]]; then
-#     echo "You have installed Charles"
-# else
-#     if [[ ! -e $HOME/Downloads/Charles.app.zip ]]; then
-#         curl "http://p2w4johvr.bkt.clouddn.com/Charles.app.zip" -o ~/Downloads/Charles.app.zip
-#     fi
-
-#     unzip -q $HOME/Downloads/Charles.app.zip -d /Applications
-#     rm $HOME/Downloads/Charles.app.zip
-# fi
-
-# Install Dash
-# if [[ -e /Applications/Dash.app ]]; then
-#     echo "You have installed Dash"
-# else
-#     if [[ ! -e $HOME/Downloads/Dash.app.zip ]]; then
-#         curl "http://p2w4johvr.bkt.clouddn.com/Dash.app.zip" -o ~/Downloads/Dash.app.zip
-#     fi
-
-#     unzip -q $HOME/Downloads/Dash.app.zip -d /Applications
-#     rm $HOME/Downloads/Dash.app.zip
-# fi
 
 # Powerline-font
 # ---------------
