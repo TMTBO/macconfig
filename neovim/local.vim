@@ -77,8 +77,8 @@ let g:operator#surround#blocks = {
 
 " Open Tagbar {{{
 
-" autocmd VimEnter * TagbarToggle
-nmap gt:TagbarToggle<CR>
+autocmd VimEnter * TagbarToggle
+nmap <LEADER>t :TagbarToggle<CR>
 
 " }}}
 
@@ -173,7 +173,7 @@ let g:lsp_log_file = ""
 let g:lsp_diagnostics_enabled = 1
 
 function! s:on_lsp_buffer_enabled() abort
-    " setlocal omnifunc=lsp#complete
+    setlocal omnifunc=lsp#complete
     setlocal signcolumn=yes
     nmap <buffer> gd <plug>(lsp-definition)
     nmap <buffer> gi <plug>(lsp-implementation)
@@ -461,7 +461,7 @@ let g:coc_global_extensions = [
 
 " GitGutter {{{
 
-let g:gitgutter_signs = 0
+let g:gitgutter_signs = 1
 let g:gitgutter_sign_allow_clobber = 0
 let g:gitgutter_map_keys = 0
 let g:gitgutter_override_sign_column_highlight = 0
@@ -486,7 +486,7 @@ highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 " Agit {{{
 
 " nnoremap <LEADER>gl :Agit<CR>
-let g:agit_no_default_mappings = 1
+" let g:agit_no_default_mappings = 1
 
 " }}}
 
