@@ -28,7 +28,6 @@ noremap <silent>S :w<CR
 " Keymappings {{{
 
 inoremap jj <esc>
-:nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <silent> gn :<C-u>tabNext<CR>
 nnoremap <silent> <C-q> :<C-u>:quit!<CR>
 inoremap <silent> <C-q> <Esc>:<C-u>:quit!<CR>
@@ -77,7 +76,7 @@ let g:operator#surround#blocks = {
 
 " Open Tagbar {{{
 
-autocmd VimEnter * TagbarToggle
+" autocmd VimEnter * TagbarToggle
 nmap <LEADER>t :TagbarToggle<CR>
 
 " }}}
@@ -121,53 +120,53 @@ if executable('sourcekit-lsp')
       \ 'whitelist': ['swift'],
       \ })
 endif
-" 
-" if executable('clangd')
-"     au User lsp_setup call lsp#register_server({
-"        \ 'name': 'clangd',
-"        \ 'cmd': {server_info->['clangd', '-background-index']},
-"        \ 'whitelist': ['h', 'c', 'cpp', 'objc', 'objcpp'],
-"        \ })
-" endif
-" 
-" if executable('bash-language-server')
-"   augroup LspBash
-"     autocmd!
-"     autocmd User lsp_setup call lsp#register_server({
-"          \ 'name': 'bash-language-server',
-"          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'bash-language-server start']},
-"          \ 'allowlist': ['sh'],
-"          \ })
-"   augroup END
-" endif
-" 
-" if executable('vim-language-server')
-"   augroup LspVim
-"     autocmd!
-"     autocmd User lsp_setup call lsp#register_server({
-"        \ 'name': 'vim-language-server',
-"        \ 'cmd': {server_info->['vim-language-server', '--stdio']},
-"        \ 'whitelist': ['vim'],
-"        \ 'initialization_options': {
-"        \   'vimruntime': $VIMRUNTIME,
-"        \   'runtimepath': &rtp,
-"        \ }})
-"   augroup END
-" endif
-" 
-" if executable('pyls')
-"     au User lsp_setup call lsp#register_server({
-"        \ 'name': 'pyls',
-"        \ 'cmd': {server_info->['pyls']},
-"        \ 'whitelist': ['python'],
-"        \ 'workspace_config': {'pyls': {'plugins': {'pydocstyle': {'enabled': v:true}}}}
-"        \ })
-" endif
-" 
-" " }}}
-" 
+
+if executable('clangd')
+    au User lsp_setup call lsp#register_server({
+       \ 'name': 'clangd',
+       \ 'cmd': {server_info->['clangd', '-background-index']},
+       \ 'whitelist': ['h', 'c', 'cpp', 'objc', 'objcpp'],
+       \ })
+endif
+
+if executable('bash-language-server')
+  augroup LspBash
+    autocmd!
+    autocmd User lsp_setup call lsp#register_server({
+         \ 'name': 'bash-language-server',
+         \ 'cmd': {server_info->[&shell, &shellcmdflag, 'bash-language-server start']},
+         \ 'allowlist': ['sh'],
+         \ })
+  augroup END
+endif
+
+if executable('vim-language-server')
+  augroup LspVim
+    autocmd!
+    autocmd User lsp_setup call lsp#register_server({
+       \ 'name': 'vim-language-server',
+       \ 'cmd': {server_info->['vim-language-server', '--stdio']},
+       \ 'whitelist': ['vim'],
+       \ 'initialization_options': {
+       \   'vimruntime': $VIMRUNTIME,
+       \   'runtimepath': &rtp,
+       \ }})
+  augroup END
+endif
+
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+       \ 'name': 'pyls',
+       \ 'cmd': {server_info->['pyls']},
+       \ 'whitelist': ['python'],
+       \ 'workspace_config': {'pyls': {'plugins': {'pydocstyle': {'enabled': v:true}}}}
+       \ })
+endif
+
+" }}}
+
 " " vim-lsp {{{
-" 
+
 let g:lsp_log_verbose = 0
 let g:lsp_log_file = ""
 let g:lsp_diagnostics_enabled = 1
@@ -175,17 +174,18 @@ let g:lsp_diagnostics_enabled = 1
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
     setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
     nmap <buffer> gd <plug>(lsp-definition)
     nmap <buffer> gi <plug>(lsp-implementation)
-    nmap <buffer> pd <plug>(lsp-peek-definition)
-    nmap <buffer> ca <plug>(lsp-code-action)
-    nmap <buffer> rn <plug>(lsp-rename)
-    nmap <buffer> nd <plug>(lsp-next-diagnostic)
-    nmap <buffer> pd <plug>(lsp-previous-diagnostic)
-    nmap <buffer> r <plug>(lsp-references)
-    nmap <buffer> pr <plug>(lsp-previous-reference)
-    nmap <buffer> nr <plug>(lsp-next-reference)
-    nmap <buffer> spstatus <plug>(lsp-status)
+    nmap <buffer> gpd <plug>(lsp-peek-definition)
+    nmap <buffer> gca <plug>(lsp-code-action)
+    nmap <buffer> grn <plug>(lsp-rename)
+    nmap <buffer> gnd <plug>(lsp-next-diagnostic)
+    nmap <buffer> gpd <plug>(lsp-previous-diagnostic)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gpr <plug>(lsp-previous-reference)
+    nmap <buffer> gnr <plug>(lsp-next-reference)
+    nmap <buffer> lspstatus <plug>(lsp-status)
     " refer to doc to add more commands
 
 endfunction
@@ -265,117 +265,106 @@ noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 " ---
 
 " Don't load the defx-git plugin file, not needed
-let b:defx_git_loaded = 1
+" let b:defx_git_loaded = 1
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+" inoremap <silent><expr> <TAB>
+"      \ pumvisible() ? "\<C-n>" :
+"      \ <SID>check_back_space() ? "\<TAB>" :
+"      \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" 
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
 
 " Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+" if has('nvim')
+"   inoremap <silent><expr> <c-space> coc#refresh()
+" else
+"   inoremap <silent><expr> <c-@> coc#refresh()
+" endif
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
 " <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
+" if exists('*complete_info')
+"   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+" else
+"   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" endif
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
 
 " Use <LEADER>h to show documentation in preview window.
-nnoremap <silent> gh :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
+" nnoremap <silent> gh :call <SID>show_documentation()<CR>
+" function! s:show_documentation()
+"   if (index(['vim','help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   elseif (coc#rpc#ready())
+"     call CocActionAsync('doHover')
+"   else
+"     execute '!' . &keywordprg . " " . expand('<cword>')
+"   endif
+" endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap grn <Plug>(coc-rename)
+" nmap grn <Plug>(coc-rename)
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+" xmap <leader>a  <Plug>(coc-codeaction-selected)
+" nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
+" nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
+" nmap <leader>qf  <Plug>(coc-fix-current)
 
 
-set updatetime=100
-set shortmess+=c
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-  Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
- else
-  set signcolumn=yes
-endif
+" set updatetime=100
+" set shortmess+=c
 
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-au CursorHold * sil call CocActionAsync('highlight')
-" au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " bases
-nn <silent> gbase :call CocLocations('ccls','$ccls/inheritance')<cr>
+" nn <silent> gbase :call CocLocations('ccls','$ccls/inheritance')<cr>
 " derived
-nn <silent> gchlid :call coclocations('ccls','$ccls/inheritance',{'derived':v:true})<cr>
+" nn <silent> gchlid :call coclocations('ccls','$ccls/inheritance',{'derived':v:true})<cr>
 
 " caller
-nn <silent> gcaller :call CocLocations('ccls','$ccls/call')<cr>
+" nn <silent> gcaller :call CocLocations('ccls','$ccls/call')<cr>
 " callee
-nn <silent> gcall :call CocLocations('ccls','$ccls/call',{'callee':v:true})<cr>
+" nn <silent> gcall :call CocLocations('ccls','$ccls/call',{'callee':v:true})<cr>
 
 " $ccls/member
-" member variables / variables in a namespace
-nn <silent> gmemb :call CocLocations('ccls','$ccls/member')<cr>
-" member functions / functions in a namespace
-nn <silent> gfunc :call CocLocations('ccls','$ccls/member',{'kind':3})<cr>
+" member variables / variables in a namesb.com/rafi/vim-denite-session/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to gitpace
+" nn <silent> gmemb :call CocLocations('ccls','$ccls/member')<cr>
+" member functions / functions in a namesb.com/rafi/vim-denite-session/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to gitb.com/rafi/vim-denite-session/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to gitb.com/rafi/vim-denite-session/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to gitb.com/rafi/vim-denite-session/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to gitpace
+" nn <silent> gfunc :call CocLocations('ccls','$ccls/member',{'kind':3})<cr>
 " nested classes / types in a namespace
-nn <silent> gtype :call CocLocations('ccls','$ccls/member',{'kind':2})<cr>
+" nn <silent> gtype :call CocLocations('ccls','$ccls/member',{'kind':2})<cr>
 
-nn <silent> gvar :call CocLocations('ccls','$ccls/vars')<cr>
-nn <silent> gVar :call CocLocations('ccls','$ccls/vars',{'kind':1})<cr>
+" nn <silent> gvar :call CocLocations('ccls','$ccls/vars')<cr>
+" nn <silent> gVar :call CocLocations('ccls','$ccls/vars',{'kind':1})<cr>
 " }}}
 
 " airline {{{
@@ -427,35 +416,35 @@ let g:airline#extensions#vista#enabled = 0
 
 " coc {{{
 
-let g:coc_global_extensions = [
-	\ 'coc-marketplace',
-        \ 'coc-actions',
-        \ 'coc-css',
-        \ 'coc-diagnostic',
-        \ 'coc-flutter-tools',
-        \ 'coc-gitignore',
-        \ 'coc-html',
-        \ 'coc-json',
-        \ 'coc-lists',
-        \ 'coc-prettier',
-        \ 'coc-pyright',
-        \ 'coc-python',
-        \ 'coc-snippets',
-        \ 'coc-sourcekit',
-        \ 'coc-stylelint',
-        \ 'coc-syntax',
-        \ 'coc-tasks',
-        \ 'coc-todolist',
-        \ 'coc-translator',
-        \ 'coc-tslint-plugin',
-        \ 'coc-tsserver',
-        \ 'coc-vimlsp',
-        \ 'coc-vetur',
-        \ 'coc-yaml',
-        \ 'coc-yank',
-	\ 'coc-git',
-        \ 'coc-vimlsp',
-        \ 'coc-sh']
+" let g:coc_global_extensions = [
+"	\ 'coc-marketplace',
+"        \ 'coc-actions',
+"        \ 'coc-css',
+"        \ 'coc-diagnostic',
+"        \ 'coc-flutter-tools',
+"        \ 'coc-gitignore',
+"        \ 'coc-html',
+"        \ 'coc-json',
+"        \ 'coc-lists',
+"        \ 'coc-prettier',
+"        \ 'coc-pyright',
+"        \ 'coc-python',
+"        \ 'coc-snippets',
+"        \ 'coc-sourcekit',
+"        \ 'coc-stylelint',
+"        \ 'coc-syntax',
+"        \ 'coc-tasks',
+"        \ 'coc-todolist',
+"        \ 'coc-translator',
+"        \ 'coc-tslint-plugin',
+"        \ 'coc-tsserver',
+"        \ 'coc-vimlsp',
+"        \ 'coc-vetur',
+"        \ 'coc-yaml',
+"        \ 'coc-yank',
+"	\ 'coc-git',
+"        \ 'coc-vimlsp',
+"        \ 'coc-sh']
 
 " }}}
 

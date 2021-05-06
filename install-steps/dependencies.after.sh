@@ -42,23 +42,3 @@ export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix nvm)/nvm.sh
 export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
 nvm install 13.13.0
-
-# for nvm .zshrc
-echo "export NVM_DIR=~/.nvm" >> ~/.zshrc
-echo "export EDITOR=\"nvim\"" >> ~/.zshrc
-echo "[ -s \"/usrlocal/opt/nvm/nvm.sh\" ] && . \"/usr/local/opt/nvm/nvm.sh\"" >> ~/.zshrc
-echo "[ -s \"/opt/homebrew/opt/nvm/nvm.sh\" ] && . \"/opt/homebrew/opt/nvm/nvm.sh\"" >> ~/.zshrc
-# https://github.com/creationix/nvm/issues/860
-# declare -a NODE_GLOBALS=(`find $NVM_DIR/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
-echo "" >> ~/.zshrc
-echo "NODE_GLOBALS+=(\"node\")" >> ~/.zshrc
-echo "NODE_GLOBALS+=(\"nvm\")" >> ~/.zshrc
-echo "" >> ~/.zshrc
-echo "load_nvm () {" >> ~/.zshrc
-echo "  [ -s \"$NVM_SH\" ] && . \"$NVM_SH\"" >> ~/.zshrc
-echo "}" >> ~/.zshrc
-echo "" >> ~/.zshrc
-echo "for cmd in \"${NODE_GLOBALS[@]}\""; do >> ~/.zshrc
-echo "  eval \"${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }\"" >> ~/.zshrc
-echo "done" >> ~/.zshrc
-
