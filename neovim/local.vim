@@ -100,7 +100,9 @@ augroup END
 " }}}
 
 " Terminal {{{
-nmap ;t :bo sp term://zsh\|resize 15<CR>i
+nmap t<CR> :bo sp term://zsh\|resize 15<CR>i
+nmap r<CR> :rightb vs term://zsh<CR>i
+nmap lg<CR> :rightb vs term://zsh<CR>ilg<CR>
 tnoremap <Esc> <C-\><C-n>
 
 " }}}
