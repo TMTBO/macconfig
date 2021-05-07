@@ -157,6 +157,7 @@ brew_install zsh-completions
 # brew install vapor/tap/vapor
 $(brew --prefix)/opt/fzf/install --all
 brew_install xcpretty
+brew_install lazygit
 
 # link git config
 mv ~/.gitconfig ~/.gitconfig_backup

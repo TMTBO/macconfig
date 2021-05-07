@@ -121,13 +121,23 @@ if executable('sourcekit-lsp')
       \ })
 endif
 
-if executable('clangd')
-    au User lsp_setup call lsp#register_server({
-       \ 'name': 'clangd',
-       \ 'cmd': {server_info->['clangd', '-background-index']},
-       \ 'whitelist': ['h', 'c', 'cpp', 'objc', 'objcpp'],
-       \ })
+if executable('ccls')
+   au User lsp_setup call lsp#register_server({
+      \ 'name': 'ccls',
+      \ 'cmd': {server_info->['ccls']},
+      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+      \ 'initialization_options': {'cache': {'directory': expand('~/.cache/ccls') }, 'clang': { 'resourceDir': '/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0', 'extraArgs': [ '-isystem', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1', '-I', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/' ] }},
+      \ 'allowlist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+      \ })
 endif
+
+" if executable('clangd')
+"     au User lsp_setup call lsp#register_server({
+"       \ 'name': 'clangd',
+"       \ 'cmd': {server_info->['clangd', '-background-index']},
+"       \ 'whitelist': ['h', 'c', 'cpp', 'objc', 'objcpp'],
+"       \ })
+" endif
 
 if executable('bash-language-server')
   augroup LspBash
