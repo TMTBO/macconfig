@@ -22,9 +22,10 @@ nmap gc :xcmenucmd Find Call Hierarchy<CR>
 nmap ;sc :xcmenucmd Add Missing Switch Cases<CR>
 
 inoremap <C-h> <C-o>h
-inoremap <C-j> <C-o>j
-inoremap <C-k> <C-o>k
 inoremap <C-l> <C-o>l
+
+inoremap <C-j> <C-o>o
+inoremap <C-k> <C-o>O
 
 " disable the arrow buttons
 noremap <UP> <NOP>
