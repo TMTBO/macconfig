@@ -11,6 +11,7 @@
 # - repo: prabirshrestha/vim-lsp
 
 - { repo: piec/vim-lsp-clangd }
+- { repo: keremc/asyncomplete-clang.vim }
 
 # Easymotion Plugs
 - repo: easymotion/vim-easymotion

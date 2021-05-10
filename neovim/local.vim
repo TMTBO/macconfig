@@ -31,6 +31,7 @@ inoremap jj <esc>
 nnoremap <silent> gn :<C-u>tabNext<CR>
 nnoremap <silent> <C-q> :<C-u>:quit!<CR>
 inoremap <silent> <C-q> <Esc>:<C-u>:quit!<CR>
+nnoremap <silent> sn :bnext<CR>
 
 " disable the arrow buttons
 noremap <UP> <NOP>
@@ -210,6 +211,22 @@ augroup END
 
 " }}}
 
+" {{{ asyncomplete-clang
+autocmd User asyncomplete_setup call asyncomplete#register_source(
+    \ asyncomplete#sources#clang#get_source_options())
+
+autocmd User asyncomplete_setup call asyncomplete#register_source(
+    \ asyncomplete#sources#clang#get_source_options({
+    \     'config': {
+    \         'clang_path': '/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0',
+    \         'clang_args': {
+    \             'default': ['-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1'],
+    \             'cpp': ['-std=c++11', '-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/']
+    \         }
+    \     }
+    \ }))
+" }}}
+
 " EasyMotion {{{
 
 let g:EasyMotion_do_mapping = 1
@@ -223,15 +240,15 @@ if dein#tap('vim-easymotion')
 	nmap ss <Plug>(easymotion-s2)
 	nmap sd <Plug>(easymotion-s)
 	" nmap sf <Plug>(easymotion-overwin-f)
-	map  sb <Plug>(easymotion-linebackward)
+	map  sF <Plug>(easymotion-linebackward)
 	map  sf <Plug>(easymotion-lineforward)
 	" map sl <Plug>(easymotiong:EasyMotion_do_mapping-lineforward)
 	map  sj <Plug>(easymotion-j)
 	map  sk <Plug>(easymotion-k)
 	map  s/ <Plug>(easymotion-sn)
 	omap s/ <Plug>(easymotion-tn)
-	map  sn <Plug>(easymotion-next)
-	map  sp <Plug>(easymotion-prev)
+	" map  sn <Plug>(easymotion-next)
+	" map  sp <Plug>(easymotion-prev)
 	map  . <Plug>(easymotion-repeat)
 endif
 
