@@ -2,6 +2,7 @@
 source basic.sh
 
 sudo ./install-steps/macos.sh
+sudo ./install-steps/prepare.sh
 
 brew install python3 #mas
 # pip3 install shadowsocks
@@ -225,3 +226,6 @@ swift package completion-tool generate-zsh-script > ~/.macbootstrap/zsh-config/_
 echo -e "fpath=(~/.macbootstrap/zsh-config \$fpath)\n" >> ~/.zshrc
 compinit
 
+
+# hook login
+./hook_login.sh

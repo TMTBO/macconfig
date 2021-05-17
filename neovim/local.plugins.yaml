@@ -10,16 +10,16 @@
 # - repo: prabirshrestha/async.vim
 # - repo: prabirshrestha/vim-lsp
 
-- { repo: piec/vim-lsp-clangd }
-- { repo: keremc/asyncomplete-clang.vim }
+# - { repo: piec/vim-lsp-clangd }
+# - { repo: keremc/asyncomplete-clang.vim }
 
 # Easymotion Plugs
-- repo: easymotion/vim-easymotion
+# - repo: easymotion/vim-easymotion
 
 # incsearch
-- repo: haya14busa/incsearch.vim
-- repo: haya14busa/incsearch-fuzzy.vim
-- repo: haya14busa/incsearch-easymotion.vim
+# - repo: haya14busa/incsearch.vim
+# - repo: haya14busa/incsearch-fuzzy.vim
+# - repo: haya14busa/incsearch-easymotion.vim
 
 # Dart
 # - repo: dart-lang/dart-vim-plugin
@@ -39,9 +39,9 @@
 
 - repo: preservim/tagbar
 # coc
-# - repo: neoclide/coc.nvim
-#   merge: 0
-#   rev: release
+- repo: neoclide/coc.nvim
+  merge: 0
+  rev: release
 
 - repo: tpope/vim-surround
 - repo: iamcco/markdown-preview.nvim

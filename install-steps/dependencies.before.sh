@@ -10,6 +10,4 @@ else
     fi
 fi
 
-# CodeRunner
-# ---------------
-# brew cask install coderunner
+
