@@ -477,7 +477,8 @@ let g:coc_global_extensions = [
        \ 'coc-yank',
        \ 'coc-git',
        \ 'coc-vimlsp',
-       \ 'coc-sh']
+       \ 'coc-sh',
+       \ 'coc-thrift-syntax-support']
 
 " }}}
 

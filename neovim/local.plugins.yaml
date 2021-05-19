@@ -1,6 +1,6 @@
 # Disable default plugins
 
-# - { repo: prabirshrestha/asyncomplete.vim, if: 0 }
+- { repo: prabirshrestha/asyncomplete.vim, if: 0 }
 
 # Dash
 # - repo: rizzatti/dash.vim

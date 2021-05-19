@@ -90,7 +90,7 @@
           "directory": ".ccls-cache"
         },
         "client": {
-          "snippetSupport": true
+          "snippetSupport": false
         },
         "clang": {
           "resourceDir": "/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0",
