@@ -228,4 +228,4 @@ compinit
 
 
 # hook login
-./hook_login.sh
+./install-steps/hook_login.sh
