@@ -21,15 +21,28 @@ nmap gc :xcmenucmd Find Call Hierarchy<CR>
 
 nnoremap <space>s :xcmenucmd Add Missing Switch Cases<CR>
 nnoremap <space>f :xcmenucmd Fix All Issues<CR>
+nnoremap <space>e :xcmenucmd Edit All in Scope<CR>
+nnoremap <space>rn :xcmenucmd Rename...<CR>
+nnoremap <space>tm :xcmenucmd Extract to Method<CR>
+
+nnoremap <space>sf :xcmenucmd Show in Finder<CR>
+
+nnoremap <space>r :xcmenucmd Show Related Items<CR>
+nnoremap <space>p :xcmenucmd Show Previous Files History<CR>
+nnoremap <space>ti :xcmenucmd Show Top Level Items<CR>
+nnoremap <space>gf :xcmenucmd Show Group Files<CR>
+nnoremap <space>di :xcmenucmd Show Document Items<CR>
 
 nnoremap sn :xcmenucmd Show Next Tab<CR>
 nnoremap sp :xcmenucmd Previous Next Tab<CR>
 
+nnoremap <space>j :m+1<CR>
+nnoremap <space>k :m-2<CR>
+
 inoremap <C-h> <C-o>h
 inoremap <C-l> <C-o>l
-
-inoremap <C-j> <C-o>o
-inoremap <C-k> <C-o>O
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
 
 " disable the arrow buttons
 noremap <UP> <NOP>
@@ -37,7 +50,7 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-" inoremap jj <ESC>
+inoremap jj <ESC>
 
 " inoremap ;; <Space>=<Space>
 
