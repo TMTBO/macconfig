@@ -43,6 +43,20 @@ function gcrf() {
   git checkout $(gbr | fzf | awk -F '/' '{print $NF}')
 }
 
+function gpcmr() {
+
+  target="master"
+  if [ -n "$1" ]; then
+    target="$1"
+  fi
+
+  if [ -n "$2" ]; then
+    git push -o merge_request.create -o merge_request.target=$target -o merge_request.title="$2"
+  else
+    git push -o merge_request.create -o merge_request.target=$target
+  fi
+}
+
 function gdt() {
     params="$@"
     if brew ls --versions scmpuff > /dev/null; then
