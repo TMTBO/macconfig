@@ -584,4 +584,6 @@ endif
 " 禁用 gutentags 自动加载 gtags 数据库的行为
 let g:gutentags_auto_add_gtags_cscope = 0
 
+let g:tagbar_ctags_bin = '/opt/homebrew/bin/ctags'
+
 " }}}
