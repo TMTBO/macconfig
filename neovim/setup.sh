@@ -3,7 +3,6 @@
 echo "Start Setup Neovim!"
 
 brew install nvim
-sudo ln -s /opt/homebrew/bin/nvim /usr/local/bin/nvim
 
 if [[ ! -e ~/.config/nvim ]]; then
 	git clone https://github.com/rafi/vim-config.git ~/.config/nvim
