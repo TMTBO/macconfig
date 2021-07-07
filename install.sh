@@ -159,6 +159,7 @@ brew_install zsh-completions
 $(brew --prefix)/opt/fzf/install --all
 brew_install xcpretty
 brew_install lazygit
+brew_install ruby
 
 # link git config
 mv ~/.gitconfig ~/.gitconfig_backup

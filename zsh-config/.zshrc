@@ -97,6 +97,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 # Ruby
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.0.0/bin:$PATH"
 # Flutter
 # export PATH="$PATH:$HOME/Developer/Flutter/flutter/bin"
 # export ENABLE_FLUTTER_DESKTOP=true

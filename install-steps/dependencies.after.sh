@@ -27,12 +27,10 @@ pip3 install --trusted-host pypi.python.org neovim jedi ipython
 pip3 install --user --upgrade --trusted-host pypi.python.org PyYAML
 
 # Gem update
-sudo gem update --system 2.7.6
-sudo gem install -n /usr/local/bin cocoapods
-sudo gem install -n /usr/local/bin cocoapods-plugins
-sudo gem install colored
-arch x86_64 sudo gem install ffi
-sudo gem install -n /usr/local/bin xcpretty
+# sudo gem update --system 2.7.6
+gem install cocoapods
+gem install colored
+gem install xcpretty
 
 # nvm & npm install
 if [[ ! -d $HOME/.nvm ]]; then

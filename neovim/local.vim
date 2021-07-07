@@ -478,6 +478,7 @@ let g:coc_global_extensions = [
        \ 'coc-git',
        \ 'coc-vimlsp',
        \ 'coc-sh',
+       \ 'coc-tabnine',
        \ 'coc-thrift-syntax-support']
 
 " }}}
