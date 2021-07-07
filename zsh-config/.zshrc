@@ -45,7 +45,7 @@ ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
 ZVM_VISUAL_LINE_MODE_CURSOR=$ZVM_CURSOR_BLOCK
 
 # for homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+[ -s "/opt/homebrew/bin/" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 source $BS_ZSH_BASE/zsh-config/common.sh
 
@@ -96,7 +96,7 @@ done
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 # Ruby
-export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.0.0/bin:$PATH"
 # Flutter
 # export PATH="$PATH:$HOME/Developer/Flutter/flutter/bin"
